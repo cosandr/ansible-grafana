@@ -26,6 +26,7 @@
   become: true
   tags:
     - grafana_install
+  when: not grafana_skip_install
 
 - include: configure.yml
   become: true
