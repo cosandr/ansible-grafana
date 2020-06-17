@@ -87,7 +87,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(rate(container_cpu_user_seconds_total{image!=\"\",job=\"$cjob\"}[1m])) / count(node_cpu_seconds_total{mode=\"user\",job=\"$njob\"}) * 100",
+          "expr": "sum(rate(container_cpu_user_seconds_total{instance=\"$instance\", image!=\"\",job=\"$cjob\"}[1m])) / count(node_cpu_seconds_total{instance=\"$instance\", mode=\"user\",job=\"$njob\"}) * 100",
           "interval": "10s",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -173,7 +173,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "machine_cpu_cores{job=\"$cjob\"}",
+          "expr": "machine_cpu_cores{instance=\"$instance\", job=\"$cjob\"}",
           "interval": "",
           "intervalFactor": 2,
           "legendFormat": "",
@@ -260,7 +260,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(sum(node_memory_MemTotal_bytes{job=\"$njob\"}) - sum(node_memory_MemFree_bytes{job=\"$njob\"}+node_memory_Buffers_bytes{job=\"$njob\"}+node_memory_Cached_bytes{job=\"$njob\"}) ) / sum(node_memory_MemTotal_bytes{job=\"$njob\"}) * 100",
+          "expr": "(sum(node_memory_MemTotal_bytes{instance=\"$instance\", job=\"$njob\"}) - sum(node_memory_MemFree_bytes{instance=\"$instance\", job=\"$njob\"}+node_memory_Buffers_bytes{instance=\"$instance\", job=\"$njob\"}+node_memory_Cached_bytes{instance=\"$instance\", job=\"$njob\"}) ) / sum(node_memory_MemTotal_bytes{instance=\"$instance\", job=\"$njob\"}) * 100",
           "interval": "10s",
           "intervalFactor": 2,
           "legendFormat": "",
@@ -348,7 +348,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(container_memory_usage_bytes{image!=\"\",job=\"$cjob\"})",
+          "expr": "sum(container_memory_usage_bytes{instance=\"$instance\", image!=\"\",job=\"$cjob\"})",
           "interval": "10s",
           "intervalFactor": 2,
           "legendFormat": "",
@@ -436,7 +436,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "(node_filesystem_size_bytes{fstype=\"aufs\",job=\"$njob\"} - node_filesystem_free_bytes{fstype=\"aufs\",job=\"$njob\"}) / node_filesystem_size_bytes{fstype=\"aufs\",job=\"$njob\"}  * 100",
+          "expr": "(node_filesystem_size_bytes{instance=\"$instance\", fstype=\"aufs\",job=\"$njob\"} - node_filesystem_free_bytes{instance=\"$instance\", fstype=\"aufs\",job=\"$njob\"}) / node_filesystem_size_bytes{instance=\"$instance\", fstype=\"aufs\",job=\"$njob\"}  * 100",
           "interval": "30s",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -524,7 +524,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(container_fs_usage_bytes{job=\"$cjob\"})",
+          "expr": "sum(container_fs_usage_bytes{instance=\"$instance\", job=\"$cjob\"})",
           "interval": "30s",
           "intervalFactor": 2,
           "legendFormat": "",
@@ -593,7 +593,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "scalar(count(container_memory_usage_bytes{image!=\"\",job=\"$cjob\"}) > 0)",
+          "expr": "scalar(count(container_memory_usage_bytes{instance=\"$instance\", image!=\"\",job=\"$cjob\"}) > 0)",
           "interval": "",
           "intervalFactor": 2,
           "legendFormat": "containers",
@@ -695,7 +695,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "node_load1{job=\"$njob\"}",
+          "expr": "node_load1{instance=\"$instance\", job=\"$njob\"}",
           "interval": "",
           "intervalFactor": 2,
           "legendFormat": "load 1m",
@@ -807,7 +807,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(node_disk_read_bytes_total{job=\"$njob\"}[5m]))",
+          "expr": "sum(irate(node_disk_read_bytes_total{instance=\"$instance\", job=\"$njob\"}[5m]))",
           "interval": "2s",
           "intervalFactor": 4,
           "legendFormat": "read",
@@ -816,7 +816,7 @@
           "step": 8
         },
         {
-          "expr": "sum(irate(node_disk_written_bytes_total{job=\"$njob\"}[5m]))",
+          "expr": "sum(irate(node_disk_written_bytes_total{instance=\"$instance\", job=\"$njob\"}[5m]))",
           "interval": "2s",
           "intervalFactor": 4,
           "legendFormat": "written",
@@ -825,7 +825,7 @@
           "step": 8
         },
         {
-          "expr": "sum(irate(node_disk_io_time_seconds_total{job=\"$njob\"}[5m]))",
+          "expr": "sum(irate(node_disk_io_time_seconds_total{instance=\"$instance\", job=\"$njob\"}[5m]))",
           "interval": "2s",
           "intervalFactor": 4,
           "legendFormat": "io time",
@@ -925,7 +925,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (name) (rate(container_cpu_usage_seconds_total{image!=\"\",container_label_org_label_schema_group!=\"monitoring\",job=\"$cjob\"}[1m])) / scalar(count(node_cpu_seconds_total{mode=\"user\",job=\"$njob\"})) * 100",
+          "expr": "sum by (name) (rate(container_cpu_usage_seconds_total{instance=\"$instance\", image!=\"\",container_label_org_label_schema_group!=\"monitoring\",job=\"$cjob\"}[1m])) / scalar(count(node_cpu_seconds_total{instance=\"$instance\", mode=\"user\",job=\"$njob\"})) * 100",
           "interval": "",
           "intervalFactor": 10,
           "legendFormat": "{{ name }}",
@@ -1025,7 +1025,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (name)(container_memory_usage_bytes{image!=\"\",container_label_org_label_schema_group!=\"monitoring\",job=\"$cjob\"})",
+          "expr": "sum by (name)(container_memory_usage_bytes{instance=\"$instance\", image!=\"\",container_label_org_label_schema_group!=\"monitoring\",job=\"$cjob\"})",
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "{{ name }}",
@@ -1125,7 +1125,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (name) (container_memory_cache{image!=\"\",container_label_org_label_schema_group!=\"monitoring\",job=\"$cjob\"})",
+          "expr": "sum by (name) (container_memory_cache{instance=\"$instance\", image!=\"\",container_label_org_label_schema_group!=\"monitoring\",job=\"$cjob\"})",
           "interval": "",
           "intervalFactor": 2,
           "legendFormat": "{{name}}",
@@ -1225,7 +1225,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (name) (rate(container_network_receive_bytes_total{image!=\"\",container_label_org_label_schema_group!=\"monitoring\",job=\"$cjob\"}[1m]))",
+          "expr": "sum by (name) (rate(container_network_receive_bytes_total{instance=\"$instance\", image!=\"\",container_label_org_label_schema_group!=\"monitoring\",job=\"$cjob\"}[1m]))",
           "interval": "",
           "intervalFactor": 10,
           "legendFormat": "{{ name }}",
@@ -1325,7 +1325,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (name) (rate(container_network_transmit_bytes_total{image!=\"\",container_label_org_label_schema_group!=\"monitoring\",job=\"$cjob\"}[1m]))",
+          "expr": "sum by (name) (rate(container_network_transmit_bytes_total{instance=\"$instance\", image!=\"\",container_label_org_label_schema_group!=\"monitoring\",job=\"$cjob\"}[1m]))",
           "interval": "",
           "intervalFactor": 10,
           "legendFormat": "{{ name }}",
@@ -1401,7 +1401,7 @@
         "name": "cjob",
         "options": [],
         "query": "label_values(cadvisor_version_info, job)",
-        "refresh": 1,
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 1,
@@ -1427,7 +1427,33 @@
         "name": "njob",
         "options": [],
         "query": "label_values(node_uname_info, job)",
-        "refresh": 1,
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      },
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "DreSRV",
+          "value": "DreSRV"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(node_uname_info, instance)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Instance",
+        "multi": false,
+        "name": "instance",
+        "options": [],
+        "query": "label_values(node_uname_info, instance)",
+        "refresh": 2,
         "regex": "",
         "skipUrlSync": false,
         "sort": 1,

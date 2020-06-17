@@ -2,7 +2,6 @@
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:226",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -18,33 +17,139 @@
   "gnetId": 6387,
   "graphTooltip": 1,
   "id": 17,
+  "iteration": 1592395272607,
   "links": [],
   "panels": [
     {
-      "dashboardFilter": "",
-      "datasource": null,
-      "folderId": null,
+      "cacheTimeout": null,
+      "colorBackground": false,
+      "colorPostfix": false,
+      "colorPrefix": false,
+      "colorValue": true,
+      "colors": [
+        "#299c46",
+        "rgba(237, 129, 40, 0.89)",
+        "#d44a3a"
+      ],
+      "datasource": "Prometheus",
+      "decimals": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "format": "mwatt",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
       "gridPos": {
-        "h": 3,
-        "w": 4,
+        "h": 2,
+        "w": 3,
         "x": 0,
         "y": 0
       },
-      "id": 27,
-      "limit": 10,
+      "id": 39,
+      "interval": null,
       "links": [],
-      "nameFilter": "",
-      "onlyAlertsOnDashboard": true,
-      "show": "current",
-      "sortOrder": 1,
-      "stateFilter": [],
-      "title": "Alerts",
-      "transparent": true,
-      "type": "alertlist"
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "pluginVersion": "6.7.2",
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false,
+        "ymax": null,
+        "ymin": null
+      },
+      "tableColumn": "gpu0",
+      "targets": [
+        {
+          "expr": "nvidia_power_limit{instance=\"$instance\"}",
+          "interval": "",
+          "intervalFactor": 5,
+          "legendFormat": "gpu{{minor}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "260000,300000",
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Power Limit",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [
+        {
+          "op": "=",
+          "text": "N/A",
+          "value": "null"
+        }
+      ],
+      "valueName": "current"
     },
     {
       "cacheTimeout": null,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 6,
         "w": 3,
@@ -54,50 +159,21 @@
       "id": 22,
       "links": [],
       "options": {
-        "fieldOptions": {
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "defaults": {
-            "mappings": [
-              {
-                "$$hashKey": "object:289",
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "nullValueMode": "connected",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": [],
+          "fields": "",
           "values": false
         },
-        "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "6.7.2",
+      "pluginVersion": "7.0.3",
       "targets": [
         {
-          "expr": "sum(nvidia_utilization_gpu) / sum(nvidia_device_count)",
+          "expr": "sum(nvidia_utilization_gpu{instance=\"$instance\"}) / sum(nvidia_device_count{instance=\"$instance\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -110,6 +186,38 @@
     {
       "cacheTimeout": null,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 6,
         "w": 3,
@@ -119,50 +227,21 @@
       "id": 23,
       "links": [],
       "options": {
-        "fieldOptions": {
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "defaults": {
-            "mappings": [
-              {
-                "$$hashKey": "object:1561",
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "nullValueMode": "connected",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": [],
+          "fields": "",
           "values": false
         },
-        "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "6.7.2",
+      "pluginVersion": "7.0.3",
       "targets": [
         {
-          "expr": "sum(nvidia_utilization_memory) / sum(nvidia_device_count)",
+          "expr": "sum(nvidia_utilization_memory{instance=\"$instance\"}) / sum(nvidia_device_count{instance=\"$instance\"})",
           "format": "time_series",
           "intervalFactor": 1,
           "refId": "A"
@@ -178,6 +257,12 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -212,16 +297,14 @@
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
-        {
-          "$$hashKey": "object:1704"
-        }
+        {}
       ],
       "spaceLength": 10,
       "stack": false,
       "steppedLine": false,
       "targets": [
         {
-          "expr": "nvidia_utilization_gpu",
+          "expr": "nvidia_utilization_gpu{instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -250,7 +333,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1715",
           "format": "percent",
           "label": null,
           "logBase": 1,
@@ -259,7 +341,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:1716",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -279,6 +360,12 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -318,7 +405,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "nvidia_utilization_memory",
+          "expr": "nvidia_utilization_memory{instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -369,142 +456,18 @@
       }
     },
     {
-      "cacheTimeout": null,
-      "colorBackground": false,
-      "colorPostfix": false,
-      "colorPrefix": false,
-      "colorValue": true,
-      "colors": [
-        "#299c46",
-        "rgba(237, 129, 40, 0.89)",
-        "#d44a3a"
-      ],
-      "datasource": "Prometheus",
-      "decimals": null,
-      "format": "mwatt",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 3,
-        "x": 0,
-        "y": 3
-      },
-      "id": 39,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "$$hashKey": "object:1603",
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "$$hashKey": "object:1604",
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "pluginVersion": "6.7.2",
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false,
-        "ymax": null,
-        "ymin": null
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "nvidia_power_limit",
-          "interval": "",
-          "intervalFactor": 5,
-          "legendFormat": "gpu{{minor}}",
-          "refId": "A"
-        }
-      ],
-      "thresholds": "260000,300000",
-      "timeFrom": null,
-      "timeShift": null,
-      "title": "Power Limit",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "$$hashKey": "object:1606",
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "current"
-    },
-    {
-      "alert": {
-        "conditions": [
-          {
-            "evaluator": {
-              "params": [
-                90
-              ],
-              "type": "gt"
-            },
-            "operator": {
-              "type": "and"
-            },
-            "query": {
-              "params": [
-                "A",
-                "5m",
-                "now"
-              ]
-            },
-            "reducer": {
-              "params": [],
-              "type": "avg"
-            },
-            "type": "query"
-          }
-        ],
-        "executionErrorState": "alerting",
-        "frequency": "5s",
-        "handler": 1,
-        "message": "The GPU temperature is too damn high!",
-        "name": "GPU Temperature alert",
-        "noDataState": "no_data",
-        "notifications": [
-          {
-            "id": 1
-          }
-        ]
-      },
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -546,7 +509,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "nvidia_temperatures",
+          "expr": "nvidia_temperatures{instance=\"$instance\"}",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -557,7 +520,6 @@
       ],
       "thresholds": [
         {
-          "$$hashKey": "object:370",
           "colorMode": "critical",
           "fill": true,
           "line": true,
@@ -585,7 +547,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:340",
           "decimals": 1,
           "format": "celsius",
           "label": "",
@@ -595,7 +556,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:341",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -616,6 +576,12 @@
       "dashes": false,
       "datasource": "Prometheus",
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 4,
       "fillGradient": 0,
       "gridPos": {
@@ -656,7 +622,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "nvidia_power_usage",
+          "expr": "nvidia_power_usage{instance=\"$instance\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -684,7 +650,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:2266",
           "format": "mwatt",
           "label": null,
           "logBase": 1,
@@ -693,7 +658,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:2267",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -714,6 +678,12 @@
       "dashes": false,
       "datasource": "Prometheus",
       "decimals": 2,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -752,7 +722,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "nvidia_clock_current_graphics * 1e6",
+          "expr": "nvidia_clock_current_graphics{instance=\"$instance\"} * 1e6",
           "interval": "",
           "legendFormat": "gpu{{minor}}",
           "refId": "A"
@@ -778,7 +748,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1066",
           "decimals": null,
           "format": "hertz",
           "label": "",
@@ -788,7 +757,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:1067",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -810,6 +778,12 @@
       "datasource": "Prometheus",
       "decimals": 2,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -848,7 +822,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "nvidia_clock_appdefault_graphics * 1e6",
+          "expr": "nvidia_clock_appdefault_graphics{instance=\"$instance\"} * 1e6",
           "interval": "",
           "legendFormat": "gpu{{minor}}",
           "refId": "A"
@@ -874,7 +848,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1066",
           "decimals": null,
           "format": "hertz",
           "label": null,
@@ -884,7 +857,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:1067",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -904,6 +876,12 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -940,13 +918,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(nvidia_utilization_process_decutil) by (minor)",
+          "expr": "sum(nvidia_utilization_process_decutil{instance=\"$instance\"}) by (minor)",
           "interval": "",
           "legendFormat": "gpu{{minor}} - Decode",
           "refId": "A"
         },
         {
-          "expr": "sum(nvidia_utilization_process_encutil) by (minor)",
+          "expr": "sum(nvidia_utilization_process_encutil{instance=\"$instance\"}) by (minor)",
           "interval": "",
           "legendFormat": "gpu{{minor}} - Encode",
           "refId": "B"
@@ -972,7 +950,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:984",
           "format": "percent",
           "label": null,
           "logBase": 1,
@@ -981,7 +958,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:985",
           "format": "percent",
           "label": null,
           "logBase": 1,
@@ -1003,6 +979,12 @@
       "datasource": "Prometheus",
       "decimals": 1,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1042,7 +1024,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "(\n  nvidia_utilization_process_smutil\n)\n   + on(pid) group_left(name)\n(\n   0 * nvidia_utilization_process_name\n)",
+          "expr": "(\n  nvidia_utilization_process_smutil{instance=\"$instance\"}\n)\n   + on(pid) group_left(name)\n(\n   0 * nvidia_utilization_process_name{instance=\"$instance\"}\n)",
           "interval": "",
           "intervalFactor": 4,
           "legendFormat": "gpu{{minor}} - {{name}} [{{pid}}]",
@@ -1069,7 +1051,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1950",
           "decimals": null,
           "format": "percent",
           "label": null,
@@ -1079,7 +1060,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:1951",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1099,6 +1079,12 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1135,13 +1121,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "nvidia_pcie_tx_bytes",
+          "expr": "nvidia_pcie_tx_bytes{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "TX-gpu{{minor}}",
           "refId": "A"
         },
         {
-          "expr": "nvidia_pcie_rx_bytes",
+          "expr": "nvidia_pcie_rx_bytes{instance=\"$instance\"}",
           "interval": "",
           "legendFormat": "RX-gpu{{minor}}",
           "refId": "B"
@@ -1167,7 +1153,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1950",
           "decimals": null,
           "format": "bytes",
           "label": null,
@@ -1177,7 +1162,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:1951",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1197,6 +1181,12 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fill": 0,
       "fillGradient": 0,
       "gridPos": {
@@ -1237,7 +1227,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "nvidia_fanspeed",
+          "expr": "nvidia_fanspeed{instance=\"$instance\"}",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -1266,7 +1256,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1839",
           "decimals": null,
           "format": "percent",
           "label": null,
@@ -1276,7 +1265,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:1840",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1293,6 +1281,12 @@
     {
       "columns": [],
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fontSize": "90%",
       "gridPos": {
         "h": 3,
@@ -1311,7 +1305,6 @@
       },
       "styles": [
         {
-          "$$hashKey": "object:413",
           "alias": "Node",
           "align": "auto",
           "colorMode": null,
@@ -1330,7 +1323,6 @@
           "unit": "short"
         },
         {
-          "$$hashKey": "object:414",
           "alias": "Version",
           "align": "auto",
           "colorMode": null,
@@ -1347,7 +1339,6 @@
           "unit": "short"
         },
         {
-          "$$hashKey": "object:415",
           "alias": "",
           "align": "auto",
           "colorMode": null,
@@ -1365,7 +1356,7 @@
       ],
       "targets": [
         {
-          "expr": "nvidia_driver_info",
+          "expr": "nvidia_driver_info{instance=\"$instance\"}",
           "format": "table",
           "instant": true,
           "intervalFactor": 1,
@@ -1374,11 +1365,41 @@
       ],
       "title": "Driver Version",
       "transform": "table",
-      "type": "table"
+      "type": "table-old"
     },
     {
       "cacheTimeout": null,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 3,
         "w": 3,
@@ -1389,48 +1410,21 @@
       "links": [],
       "options": {
         "colorMode": "value",
-        "fieldOptions": {
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
             "min"
           ],
-          "defaults": {
-            "mappings": [
-              {
-                "$$hashKey": "object:2441",
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "nullValueMode": "connected",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                },
-                {
-                  "color": "red",
-                  "value": 80
-                }
-              ]
-            },
-            "unit": "watt"
-          },
-          "overrides": [],
+          "fields": "",
           "values": false
-        },
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal"
+        }
       },
-      "pluginVersion": "6.7.2",
+      "pluginVersion": "7.0.3",
       "targets": [
         {
-          "expr": "(sum(sum_over_time(nvidia_power_usage[12h])) / sum(count_over_time(nvidia_power_usage[12h]))) / (24*60)",
+          "expr": "(sum(sum_over_time(nvidia_power_usage{instance=\"$instance\"}[12h])) / sum(count_over_time(nvidia_power_usage{instance=\"$instance\"}[12h]))) / (24*60)",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1451,6 +1445,12 @@
         "#d44a3a"
       ],
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -1471,12 +1471,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:508",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:509",
           "name": "range to text",
           "value": 2
         }
@@ -1504,7 +1502,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "sum(nvidia_device_count)",
+          "expr": "sum(nvidia_device_count{instance=\"$instance\"})",
           "format": "time_series",
           "instant": true,
           "intervalFactor": 1,
@@ -1518,7 +1516,6 @@
       "valueFontSize": "80%",
       "valueMaps": [
         {
-          "$$hashKey": "object:511",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -1528,7 +1525,7 @@
     }
   ],
   "refresh": "",
-  "schemaVersion": 22,
+  "schemaVersion": 25,
   "style": "dark",
   "tags": [
     "gpu",
@@ -1537,7 +1534,34 @@
     "infrastructure"
   ],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": true,
+          "text": "desktop",
+          "value": "desktop"
+        },
+        "datasource": "Prometheus",
+        "definition": "label_values(nvidia_info, instance)",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Instance",
+        "multi": false,
+        "name": "instance",
+        "options": [],
+        "query": "label_values(nvidia_info, instance)",
+        "refresh": 2,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
+      }
+    ]
   },
   "time": {
     "from": "now-15m",
@@ -1545,7 +1569,6 @@
   },
   "timepicker": {
     "refresh_intervals": [
-      "5s",
       "10s",
       "30s",
       "1m",
@@ -1571,8 +1594,5 @@
   "timezone": "",
   "title": "Nvidia GPU",
   "uid": "fnvhnzGmk",
-  "variables": {
-    "list": []
-  },
-  "version": 9
+  "version": 11
 }
