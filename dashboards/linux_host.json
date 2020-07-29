@@ -17,7 +17,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "iteration": 1589383012166,
+  "iteration": 1596016206035,
   "links": [],
   "panels": [
     {
@@ -33,6 +33,12 @@
       "decimals": 1,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "s",
       "gauge": {
         "maxValue": 100,
@@ -83,7 +89,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "{instance=\"desktop\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_time_seconds{instance=\"$instance\", job=\"$job\"} - node_boot_time_seconds{instance=\"$instance\", job=\"$job\"}",
@@ -119,6 +125,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "percent",
       "gauge": {
         "maxValue": 100,
@@ -206,6 +218,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -256,7 +274,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "machine_cpu_cores{instance=\"RomeoTV\", job=\"cadvisor\"}",
       "targets": [
         {
           "expr": "machine_cpu_cores{instance=\"$instance\", job=\"$cjob\"}",
@@ -292,6 +310,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -342,7 +366,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "node_memory_MemAvailable_bytes{instance=\"desktop\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_memory_MemAvailable_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -379,6 +403,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -429,7 +459,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "node_memory_SwapFree_bytes{instance=\"desktop\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_memory_SwapFree_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -455,23 +485,32 @@
     },
     {
       "cacheTimeout": null,
-      "colorBackground": false,
-      "colorValue": false,
-      "colors": [
-        "rgba(245, 54, 54, 0.9)",
-        "rgba(237, 129, 40, 0.89)",
-        "rgba(50, 172, 45, 0.97)"
-      ],
       "datasource": "Prometheus",
-      "editable": true,
-      "error": false,
-      "format": "bytes",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "nullValueMode": "connected",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
       },
       "gridPos": {
         "h": 3,
@@ -482,40 +521,23 @@
       "hideTimeOverride": true,
       "id": 4,
       "interval": null,
-      "isNew": true,
       "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
       "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
       },
-      "tableColumn": "",
+      "pluginVersion": "7.1.1",
       "targets": [
         {
           "expr": "sum(node_filesystem_free_bytes{instance=\"$instance\", job=\"$job\", mountpoint=\"/\"})",
@@ -526,19 +548,9 @@
           "step": 30
         }
       ],
-      "thresholds": "",
       "timeFrom": "10s",
       "title": "Free Storage (root)",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [
-        {
-          "op": "=",
-          "text": "N/A",
-          "value": "null"
-        }
-      ],
-      "valueName": "avg"
+      "type": "stat"
     },
     {
       "aliasColors": {},
@@ -549,6 +561,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -574,10 +593,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -650,6 +667,13 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -675,10 +699,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -761,6 +783,13 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -786,10 +815,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -861,6 +888,13 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -884,10 +918,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -952,6 +984,13 @@
       "dashes": false,
       "datasource": "Prometheus",
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -968,17 +1007,15 @@
         "current": true,
         "max": true,
         "min": true,
-        "show": true,
+        "show": false,
         "total": false,
         "values": true
       },
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1047,6 +1084,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 4,
       "fillGradient": 0,
       "grid": {},
@@ -1074,10 +1118,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1143,6 +1185,14 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1167,10 +1217,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1180,10 +1228,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "label_replace(node_btrfs_used_bytes{instance=\"$instance\", job=\"$job\"}, \"instance_clean\", \"$1\", \"instance\", \"(.*):.*\") / 1e9",
+          "expr": "(\n  node_btrfs_used_bytes{instance=\"$instance\", job=\"$job\", block_group_type=\"data\"}\n)\n  + on(uuid) group_left(label)\n(\n0 * node_btrfs_info{instance=\"$instance\", job=\"$job\"}\n)",
           "interval": "",
           "intervalFactor": 4,
-          "legendFormat": "{{block_group_type}} [{{instance_clean}}]",
+          "legendFormat": "{{label}}",
           "refId": "A"
         }
       ],
@@ -1191,7 +1239,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "BTRFS Used GB",
+      "title": "BTRFS Used Data",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -1207,15 +1255,177 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:141",
           "decimals": null,
-          "format": "short",
-          "label": "GB",
+          "format": "decbytes",
+          "label": "",
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
+          "$$hashKey": "object:142",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": null
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "light-blue",
+                "value": null
+              }
+            ]
+          },
+          "unit": "decbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 20
+      },
+      "id": 24,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name"
+      },
+      "pluginVersion": "7.1.1",
+      "targets": [
+        {
+          "expr": "node_filesystem_free_bytes{instance=\"$instance\", job=\"$job\", fstype!=\"tmpfs\"}",
+          "format": "time_series",
+          "interval": "",
+          "legendFormat": "{{mountpoint}}",
+          "refId": "A"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Filesystem Free Space",
+      "type": "stat"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "decimals": 1,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 27
+      },
+      "hiddenSeries": false,
+      "id": 22,
+      "legend": {
+        "alignAsTable": true,
+        "avg": false,
+        "current": true,
+        "max": false,
+        "min": false,
+        "rightSide": true,
+        "show": true,
+        "sideWidth": null,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "(\n  node_btrfs_used_bytes{instance=\"$instance\", job=\"$job\", block_group_type=\"metadata\"}\n)\n  + on(uuid) group_left(label)\n(\n0 * node_btrfs_info{instance=\"$instance\", job=\"$job\"}\n)",
+          "interval": "",
+          "intervalFactor": 4,
+          "legendFormat": "{{label}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "BTRFS Used Metadata",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:141",
+          "decimals": null,
+          "format": "decbytes",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:142",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1238,6 +1448,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -1245,7 +1462,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 20
+        "y": 27
       },
       "hiddenSeries": false,
       "id": 7,
@@ -1265,10 +1482,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1372,6 +1587,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 4,
       "fillGradient": 0,
       "grid": {},
@@ -1379,7 +1601,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 27
+        "y": 34
       },
       "hiddenSeries": false,
       "id": 6,
@@ -1399,10 +1621,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1508,6 +1728,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 4,
       "fillGradient": 0,
       "grid": {},
@@ -1515,7 +1742,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 34
+        "y": 41
       },
       "hiddenSeries": false,
       "id": 8,
@@ -1535,10 +1762,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1615,6 +1840,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 4,
       "fillGradient": 0,
       "grid": {},
@@ -1622,7 +1854,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 41
+        "y": 48
       },
       "hiddenSeries": false,
       "id": 14,
@@ -1642,10 +1874,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1731,6 +1961,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -1738,7 +1975,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 41
+        "y": 48
       },
       "hiddenSeries": false,
       "id": 15,
@@ -1757,10 +1994,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1830,7 +2065,7 @@
     }
   ],
   "refresh": "",
-  "schemaVersion": 22,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [
     "system"
@@ -1840,6 +2075,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": false,
           "text": "cadvisor",
           "value": "cadvisor"
         },
@@ -1847,7 +2083,6 @@
         "definition": "label_values(cadvisor_version_info, job)",
         "hide": 0,
         "includeAll": false,
-        "index": -1,
         "label": "Cadvisor",
         "multi": false,
         "name": "cjob",
@@ -1866,6 +2101,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": false,
           "text": "node",
           "value": "node"
         },
@@ -1873,7 +2109,6 @@
         "definition": "label_values(node_uname_info, job)",
         "hide": 0,
         "includeAll": false,
-        "index": -1,
         "label": "Node Exporter",
         "multi": false,
         "name": "job",
@@ -1892,9 +2127,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
-          "text": "DreSRV",
-          "value": "DreSRV"
+          "selected": true,
+          "text": "desktop",
+          "value": "desktop"
         },
         "datasource": "Prometheus",
         "definition": "label_values(node_uname_info, instance)",
@@ -1918,7 +2153,7 @@
     ]
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {
@@ -1949,8 +2184,5 @@
   "timezone": "browser",
   "title": "Linux Host",
   "uid": "BErpVUjWz1",
-  "variables": {
-    "list": []
-  },
-  "version": 4
+  "version": 2
 }
