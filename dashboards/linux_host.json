@@ -17,7 +17,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "iteration": 1596016206035,
+  "iteration": 1596133405696,
   "links": [],
   "panels": [
     {
@@ -89,7 +89,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "{instance=\"desktop\", job=\"node\"}",
+      "tableColumn": "{instance=\"DreSRV\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_time_seconds{instance=\"$instance\", job=\"$job\"} - node_boot_time_seconds{instance=\"$instance\", job=\"$job\"}",
@@ -274,7 +274,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "machine_cpu_cores{instance=\"RomeoTV\", job=\"cadvisor\"}",
+      "tableColumn": "machine_cpu_cores{instance=\"DreSRV\", job=\"cadvisor\"}",
       "targets": [
         {
           "expr": "machine_cpu_cores{instance=\"$instance\", job=\"$cjob\"}",
@@ -366,7 +366,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "node_memory_MemAvailable_bytes{instance=\"desktop\", job=\"node\"}",
+      "tableColumn": "node_memory_MemAvailable_bytes{instance=\"DreSRV\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_memory_MemAvailable_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -459,7 +459,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "node_memory_SwapFree_bytes{instance=\"desktop\", job=\"node\"}",
+      "tableColumn": "node_memory_SwapFree_bytes{instance=\"DreSRV\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_memory_SwapFree_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -1231,7 +1231,7 @@
           "expr": "(\n  node_btrfs_used_bytes{instance=\"$instance\", job=\"$job\", block_group_type=\"data\"}\n)\n  + on(uuid) group_left(label)\n(\n0 * node_btrfs_info{instance=\"$instance\", job=\"$job\"}\n)",
           "interval": "",
           "intervalFactor": 4,
-          "legendFormat": "{{label}}",
+          "legendFormat": "{{label}} ",
           "refId": "A"
         }
       ],
@@ -1391,7 +1391,7 @@
           "expr": "(\n  node_btrfs_used_bytes{instance=\"$instance\", job=\"$job\", block_group_type=\"metadata\"}\n)\n  + on(uuid) group_left(label)\n(\n0 * node_btrfs_info{instance=\"$instance\", job=\"$job\"}\n)",
           "interval": "",
           "intervalFactor": 4,
-          "legendFormat": "{{label}}",
+          "legendFormat": "{{label}} ",
           "refId": "A"
         }
       ],
@@ -2064,7 +2064,7 @@
       }
     }
   ],
-  "refresh": "",
+  "refresh": "5m",
   "schemaVersion": 26,
   "style": "dark",
   "tags": [
@@ -2127,9 +2127,9 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "text": "desktop",
-          "value": "desktop"
+          "selected": false,
+          "text": "DreSRV",
+          "value": "DreSRV"
         },
         "datasource": "Prometheus",
         "definition": "label_values(node_uname_info, instance)",
@@ -2153,7 +2153,7 @@
     ]
   },
   "time": {
-    "from": "now-5m",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {
@@ -2184,5 +2184,5 @@
   "timezone": "browser",
   "title": "Linux Host",
   "uid": "BErpVUjWz1",
-  "version": 2
+  "version": 4
 }
