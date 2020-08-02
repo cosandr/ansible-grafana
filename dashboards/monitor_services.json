@@ -3370,7 +3370,7 @@
     }
   ],
   "time": {
-    "from": "now-15m",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -3483,7 +3483,7 @@
   "annotations": {
     "list": []
   },
-  "refresh": "10s",
+  "refresh": "1m",
   "schemaVersion": 12,
   "version": 22,
   "links": [],

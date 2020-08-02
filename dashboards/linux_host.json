@@ -17,7 +17,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "iteration": 1596366241675,
+  "iteration": 1596376054544,
   "links": [],
   "panels": [
     {
@@ -894,6 +894,107 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "decimals": 0,
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "hiddenSeries": false,
+      "id": 26,
+      "legend": {
+        "alignAsTable": true,
+        "avg": true,
+        "current": true,
+        "hideEmpty": true,
+        "hideZero": true,
+        "max": true,
+        "min": true,
+        "rightSide": true,
+        "show": true,
+        "total": false,
+        "values": true
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "percentage": false,
+      "pluginVersion": "7.1.1",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "(\n  node_hwmon_temp_celsius{instance=\"$instance\", job=\"$job\"}\n)\n  + on(chip) group_left(chip_name)\n(\n0 * node_hwmon_chip_names{instance=\"$instance\", job=\"$job\"}\n)",
+          "interval": "",
+          "legendFormat": "{{chip_name}} - {{sensor}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Temperatures",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:293",
+          "decimals": 0,
+          "format": "celsius",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:294",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -907,7 +1008,7 @@
         "h": 6,
         "w": 12,
         "x": 0,
-        "y": 7
+        "y": 15
       },
       "hiddenSeries": false,
       "id": 19,
@@ -961,6 +1062,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:226",
           "decimals": null,
           "format": "celsius",
           "label": "",
@@ -970,6 +1072,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:227",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1003,7 +1106,7 @@
         "h": 6,
         "w": 12,
         "x": 12,
-        "y": 7
+        "y": 15
       },
       "hiddenSeries": false,
       "id": 21,
@@ -1104,7 +1207,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 13
+        "y": 21
       },
       "hiddenSeries": false,
       "id": 5,
@@ -1205,7 +1308,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 20
+        "y": 28
       },
       "hiddenSeries": false,
       "id": 17,
@@ -1311,7 +1414,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 20
+        "y": 28
       },
       "id": 24,
       "options": {
@@ -1364,7 +1467,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 27
+        "y": 35
       },
       "hiddenSeries": false,
       "id": 22,
@@ -1468,7 +1571,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 27
+        "y": 35
       },
       "hiddenSeries": false,
       "id": 7,
@@ -1607,7 +1710,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 34
+        "y": 42
       },
       "hiddenSeries": false,
       "id": 6,
@@ -1748,7 +1851,7 @@
         "h": 7,
         "w": 24,
         "x": 0,
-        "y": 41
+        "y": 49
       },
       "hiddenSeries": false,
       "id": 8,
@@ -1860,7 +1963,7 @@
         "h": 7,
         "w": 12,
         "x": 0,
-        "y": 48
+        "y": 56
       },
       "hiddenSeries": false,
       "id": 14,
@@ -1981,7 +2084,7 @@
         "h": 7,
         "w": 12,
         "x": 12,
-        "y": 48
+        "y": 56
       },
       "hiddenSeries": false,
       "id": 15,
@@ -2070,7 +2173,7 @@
       }
     }
   ],
-  "refresh": "5m",
+  "refresh": "1m",
   "schemaVersion": 26,
   "style": "dark",
   "tags": [
@@ -2159,7 +2262,7 @@
     ]
   },
   "time": {
-    "from": "now-6h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -2190,5 +2293,5 @@
   "timezone": "browser",
   "title": "Linux Host",
   "uid": "BErpVUjWz1",
-  "version": 5
+  "version": 6
 }
