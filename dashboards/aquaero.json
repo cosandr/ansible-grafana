@@ -15,8 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "id": 25,
-  "iteration": 1592395919998,
+  "iteration": 1596367115050,
   "links": [],
   "panels": [
     {
@@ -28,7 +27,8 @@
       "decimals": 0,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -57,10 +57,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -70,28 +68,16 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "label_replace(aquaero_rpm{job=\"$job\", instance=\"$instance\", id=\"fan3\"}, \"nick\", \"D5\", \"id\", \".*\")",
-          "interval": "",
-          "legendFormat": "{{nick}}",
-          "refId": "A"
-        },
-        {
-          "expr": "label_replace(aquaero_rpm{job=\"$job\", instance=\"$instance\", id=\"fan1\"}, \"nick\", \"DDC\", \"id\", \".*\")",
+          "expr": "label_replace(aquaero_rpm{job=\"$job\", instance=\"$instance\", id=\"fan1\"}, \"nick\", \"Pump\", \"id\", \".*\")",
           "interval": "",
           "legendFormat": "{{nick}}",
           "refId": "B"
         },
         {
-          "expr": "label_replace(aquaero_rpm{job=\"$job\", instance=\"$instance\", id=\"fan2\"}, \"nick\", \"Internal\", \"id\", \".*\")",
+          "expr": "label_replace(aquaero_rpm{job=\"$job\", instance=\"$instance\", id=\"fan2\"}, \"nick\", \"Fans\", \"id\", \".*\")",
           "interval": "",
           "legendFormat": "{{nick}}",
           "refId": "C"
-        },
-        {
-          "expr": "label_replace(aquaero_rpm{job=\"$job\", instance=\"$instance\", id=\"fan4\"}, \"nick\", \"External\", \"id\", \".*\")",
-          "interval": "",
-          "legendFormat": "{{nick}}",
-          "refId": "D"
         }
       ],
       "thresholds": [],
@@ -145,7 +131,8 @@
       "decimals": 1,
       "fieldConfig": {
         "defaults": {
-          "custom": {}
+          "custom": {},
+          "links": []
         },
         "overrides": []
       },
@@ -174,10 +161,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -249,7 +234,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 25,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -257,7 +242,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "aquaero",
           "value": "aquaero"
         },
@@ -268,18 +253,7 @@
         "label": null,
         "multi": false,
         "name": "job",
-        "options": [
-          {
-            "selected": false,
-            "text": "desktop-linux",
-            "value": "desktop-linux"
-          },
-          {
-            "selected": true,
-            "text": "aquaero",
-            "value": "aquaero"
-          }
-        ],
+        "options": [],
         "query": "label_values(python_info, job)",
         "refresh": 2,
         "regex": "",
@@ -294,7 +268,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "desktop",
           "value": "desktop"
         },
@@ -320,7 +294,7 @@
     ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -339,5 +313,5 @@
   "timezone": "",
   "title": "Aquaero",
   "uid": "VOcd_lkGz",
-  "version": 4
+  "version": 7
 }

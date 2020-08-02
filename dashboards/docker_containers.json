@@ -17,8 +17,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 1,
-  "iteration": 1586636728894,
+  "iteration": 1596366309559,
   "links": [],
   "panels": [
     {
@@ -34,6 +33,12 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "percent",
       "gauge": {
         "maxValue": 100,
@@ -121,6 +126,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "none",
       "gauge": {
         "maxValue": 100,
@@ -170,7 +181,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "machine_cpu_cores{instance=\"DreSRV\", job=\"cadvisor\"}",
       "targets": [
         {
           "expr": "machine_cpu_cores{instance=\"$instance\", job=\"$cjob\"}",
@@ -207,6 +218,12 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "percent",
       "gauge": {
         "maxValue": 100,
@@ -295,6 +312,12 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -383,6 +406,12 @@
       "decimals": null,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "percent",
       "gauge": {
         "maxValue": 100,
@@ -433,10 +462,10 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "{device=\"/dev/loop2\", fstype=\"btrfs\", instance=\"RomeoTV\", job=\"node\", mountpoint=\"/var/lib/docker\"}",
       "targets": [
         {
-          "expr": "(node_filesystem_size_bytes{instance=\"$instance\", fstype=\"aufs\",job=\"$njob\"} - node_filesystem_free_bytes{instance=\"$instance\", fstype=\"aufs\",job=\"$njob\"}) / node_filesystem_size_bytes{instance=\"$instance\", fstype=\"aufs\",job=\"$njob\"}  * 100",
+          "expr": "(node_filesystem_size_bytes{instance=\"$instance\", mountpoint=\"/var/lib/docker\",job=\"$njob\"} - node_filesystem_free_bytes{instance=\"$instance\", mountpoint=~\"/var/lib/docker\",job=\"$njob\"}) / node_filesystem_size_bytes{instance=\"$instance\", mountpoint=\"/var/lib/docker\",job=\"$njob\"}  * 100",
           "interval": "30s",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -471,6 +500,12 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -555,6 +590,13 @@
       "decimals": 0,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -580,10 +622,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -652,6 +692,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -677,10 +724,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -754,6 +799,13 @@
       "datasource": "Prometheus",
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -781,10 +833,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -885,6 +935,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -912,10 +969,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -927,7 +982,7 @@
         {
           "expr": "sum by (name) (rate(container_cpu_usage_seconds_total{instance=\"$instance\", image!=\"\",container_label_org_label_schema_group!=\"monitoring\",job=\"$cjob\"}[1m])) / scalar(count(node_cpu_seconds_total{instance=\"$instance\", mode=\"user\",job=\"$njob\"})) * 100",
           "interval": "",
-          "intervalFactor": 10,
+          "intervalFactor": 5,
           "legendFormat": "{{ name }}",
           "metric": "container_cpu_user_seconds_total",
           "refId": "A",
@@ -955,6 +1010,7 @@
       },
       "yaxes": [
         {
+          "$$hashKey": "object:405",
           "format": "percent",
           "label": null,
           "logBase": 1,
@@ -963,6 +1019,7 @@
           "show": true
         },
         {
+          "$$hashKey": "object:406",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -985,6 +1042,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -1012,10 +1076,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1085,6 +1147,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -1112,10 +1181,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1185,6 +1252,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -1212,10 +1286,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1285,6 +1357,13 @@
       "decimals": 2,
       "editable": true,
       "error": false,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "grid": {},
@@ -1312,10 +1391,8 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1377,8 +1454,8 @@
       }
     }
   ],
-  "refresh": "10s",
-  "schemaVersion": 22,
+  "refresh": "1m",
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [
     "docker"
@@ -1388,6 +1465,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": false,
           "text": "cadvisor",
           "value": "cadvisor"
         },
@@ -1395,7 +1473,6 @@
         "definition": "label_values(cadvisor_version_info, job)",
         "hide": 0,
         "includeAll": false,
-        "index": -1,
         "label": "Cadvisor",
         "multi": false,
         "name": "cjob",
@@ -1414,14 +1491,14 @@
       {
         "allValue": null,
         "current": {
-          "text": "nodeexporter",
-          "value": "nodeexporter"
+          "selected": false,
+          "text": "node",
+          "value": "node"
         },
         "datasource": "Prometheus",
         "definition": "label_values(node_uname_info, job)",
         "hide": 0,
         "includeAll": false,
-        "index": -1,
         "label": "Node Exporter",
         "multi": false,
         "name": "njob",
@@ -1440,7 +1517,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "DreSRV",
           "value": "DreSRV"
         },
@@ -1466,7 +1543,7 @@
     ]
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-3h",
     "to": "now"
   },
   "timepicker": {
@@ -1497,8 +1574,5 @@
   "timezone": "browser",
   "title": "Docker Containers",
   "uid": "5yfq0LCWk",
-  "variables": {
-    "list": []
-  },
-  "version": 253
+  "version": 3
 }

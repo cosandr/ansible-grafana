@@ -17,7 +17,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "iteration": 1596133405696,
+  "iteration": 1596366241675,
   "links": [],
   "panels": [
     {
@@ -102,6 +102,7 @@
       "thresholds": "",
       "timeFrom": "10s",
       "title": "Uptime",
+      "transparent": true,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -195,6 +196,7 @@
       "thresholds": "",
       "timeFrom": "10s",
       "title": "CPU Idle",
+      "transparent": true,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -287,6 +289,7 @@
       "thresholds": "",
       "timeFrom": "10s",
       "title": "CPU Cores",
+      "transparent": true,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -380,6 +383,7 @@
       "thresholds": "",
       "timeFrom": "10s",
       "title": "Available Memory",
+      "transparent": true,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -472,6 +476,7 @@
       "thresholds": "",
       "timeFrom": "10s",
       "title": "Free Swap",
+      "transparent": true,
       "type": "singlestat",
       "valueFontSize": "80%",
       "valueMaps": [
@@ -550,6 +555,7 @@
       ],
       "timeFrom": "10s",
       "title": "Free Storage (root)",
+      "transparent": true,
       "type": "stat"
     },
     {
@@ -2184,5 +2190,5 @@
   "timezone": "browser",
   "title": "Linux Host",
   "uid": "BErpVUjWz1",
-  "version": 4
+  "version": 5
 }
