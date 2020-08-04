@@ -17,7 +17,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "iteration": 1596460814180,
+  "iteration": 1596548852128,
   "links": [],
   "panels": [
     {
@@ -853,7 +853,7 @@
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
@@ -954,7 +954,7 @@
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": null,
+          "min": "0",
           "show": true
         },
         {
@@ -1439,7 +1439,7 @@
       "pluginVersion": "7.1.1",
       "targets": [
         {
-          "expr": "node_filesystem_free_bytes{instance=\"$instance\", job=\"$job\", fstype!=\"tmpfs\"}",
+          "expr": "node_filesystem_free_bytes{instance=\"$instance\", job=\"$job\", fstype!~\"(tmpfs|nfs\\\\d*)\", mountpoint!~\".*\\\\.snapshots.*\"}",
           "format": "time_series",
           "interval": "",
           "legendFormat": "{{mountpoint}}",
@@ -2139,7 +2139,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "DreSRV",
           "value": "DreSRV"
         },
@@ -2196,5 +2196,5 @@
   "timezone": "browser",
   "title": "Linux Host",
   "uid": "BErpVUjWz1",
-  "version": 10
+  "version": 12
 }
