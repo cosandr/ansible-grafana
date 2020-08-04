@@ -17,8 +17,7 @@
   "editable": true,
   "gnetId": 11745,
   "graphTooltip": 0,
-  "id": 20,
-  "iteration": 1589383408154,
+  "iteration": 1596529942303,
   "links": [],
   "panels": [
     {
@@ -35,6 +34,12 @@
       "datasource": "Prometheus",
       "decimals": 1,
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "s",
       "gauge": {
         "maxValue": 100,
@@ -84,8 +89,8 @@
       "scopedVars": {
         "host": {
           "selected": true,
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "text": "desktop",
+          "value": "desktop"
         }
       },
       "sparkline": {
@@ -94,10 +99,10 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "{instance=\"desktop\", job=\"wmi\"}",
       "targets": [
         {
-          "expr": "wmi_os_time{instance=~\"$host\"} - wmi_system_system_up_time{instance=~\"$host\"}",
+          "expr": "windows_os_time{instance=~\"$host\"} - windows_system_system_up_time{instance=~\"$host\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -127,6 +132,13 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 3,
       "fillGradient": 0,
       "gridPos": {
@@ -153,10 +165,8 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -165,8 +175,8 @@
       "scopedVars": {
         "host": {
           "selected": true,
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "text": "desktop",
+          "value": "desktop"
         }
       },
       "seriesOverrides": [],
@@ -175,7 +185,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "wmi_system_threads{instance=~\"$host\"}",
+          "expr": "windows_system_threads{instance=~\"$host\"}",
           "format": "time_series",
           "hide": false,
           "intervalFactor": 1,
@@ -238,6 +248,12 @@
       ],
       "datasource": "Prometheus",
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "percentunit",
       "gauge": {
         "maxValue": 1,
@@ -285,8 +301,8 @@
       "scopedVars": {
         "host": {
           "selected": true,
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "text": "desktop",
+          "value": "desktop"
         }
       },
       "sparkline": {
@@ -298,7 +314,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "1 - avg(irate(wmi_cpu_time_total{instance=~\"$host\",mode=\"idle\"}[5m])) > 0",
+          "expr": "1 - avg(irate(windows_cpu_time_total{instance=~\"$host\",mode=\"idle\"}[5m])) > 0",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -333,6 +349,12 @@
       ],
       "datasource": "Prometheus",
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "percentunit",
       "gauge": {
         "maxValue": 1,
@@ -380,8 +402,8 @@
       "scopedVars": {
         "host": {
           "selected": true,
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "text": "desktop",
+          "value": "desktop"
         }
       },
       "sparkline": {
@@ -390,10 +412,10 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": true
       },
-      "tableColumn": "",
+      "tableColumn": "{instance=\"desktop\", job=\"wmi\"}",
       "targets": [
         {
-          "expr": "1 - (wmi_os_physical_memory_free_bytes{instance=~\"$host\"} / wmi_cs_physical_memory_bytes{instance=~\"$host\"}) > 0",
+          "expr": "1 - (windows_os_physical_memory_free_bytes{instance=~\"$host\"} / windows_cs_physical_memory_bytes{instance=~\"$host\"}) > 0",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -421,6 +443,24 @@
       "cacheTimeout": null,
       "datasource": "Prometheus",
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "bytes"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 4,
         "w": 5,
@@ -431,44 +471,31 @@
       "links": [],
       "options": {
         "colorMode": "value",
-        "fieldOptions": {
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "defaults": {
-            "decimals": 1,
-            "mappings": [],
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "green",
-                  "value": null
-                }
-              ]
-            },
-            "unit": "bytes"
-          },
-          "overrides": [],
+          "fields": "",
           "values": false
         },
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal"
+        "textMode": "auto"
       },
-      "pluginVersion": "6.7.3",
+      "pluginVersion": "7.1.1",
       "repeat": "host",
       "repeatDirection": "v",
       "scopedVars": {
         "host": {
           "selected": true,
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "text": "desktop",
+          "value": "desktop"
         }
       },
       "targets": [
         {
-          "expr": "sum(increase(wmi_net_bytes_received_total{instance=~\"$host\"}[24h]))",
+          "expr": "sum(increase(windows_net_bytes_received_total{instance=~\"$host\"}[24h]))",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -477,7 +504,7 @@
           "refId": "A"
         },
         {
-          "expr": "sum(increase(wmi_net_bytes_sent_total{instance=~\"$host\"}[24h]))",
+          "expr": "sum(increase(windows_net_bytes_sent_total{instance=~\"$host\"}[24h]))",
           "format": "time_series",
           "instant": false,
           "interval": "",
@@ -494,6 +521,12 @@
     {
       "columns": [],
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "fontSize": "100%",
       "gridPos": {
         "h": 4,
@@ -509,8 +542,8 @@
       "scopedVars": {
         "host": {
           "selected": true,
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "text": "desktop",
+          "value": "desktop"
         }
       },
       "scroll": true,
@@ -577,7 +610,7 @@
       ],
       "targets": [
         {
-          "expr": "sort_desc(wmi_logical_disk_free_bytes{instance=~\"$host\",volume=~\"(^[A-Z]:$)\"})",
+          "expr": "sort_desc(windows_logical_disk_free_bytes{instance=~\"$host\",volume=~\"(^[A-Z]:$)\"})",
           "format": "table",
           "instant": true,
           "intervalFactor": 1,
@@ -589,7 +622,7 @@
       "timeShift": null,
       "title": "Disk (Free)",
       "transform": "table",
-      "type": "table"
+      "type": "table-old"
     },
     {
       "aliasColors": {},
@@ -597,6 +630,13 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 3,
       "fillGradient": 0,
       "gridPos": {
@@ -623,10 +663,8 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -635,8 +673,8 @@
       "scopedVars": {
         "host": {
           "selected": true,
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "text": "desktop",
+          "value": "desktop"
         }
       },
       "seriesOverrides": [],
@@ -645,7 +683,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (mode) (irate(wmi_cpu_time_total{instance=~\"$host\"}[5m]))",
+          "expr": "sum by (mode) (irate(windows_cpu_time_total{instance=~\"$host\"}[5m]))",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -701,6 +739,13 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -729,10 +774,8 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -742,7 +785,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum by (process) (rate(wmi_process_cpu_time_total{instance=~\"$host\", process !~\"Idle\"}[5m]))",
+          "expr": "sum by (process) (rate(windows_process_cpu_time_total{instance=~\"$host\", process !~\"Idle\"}[5m]))",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -801,6 +844,13 @@
       "dashes": false,
       "datasource": "Prometheus",
       "decimals": 1,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 3,
       "fillGradient": 0,
       "gridPos": {
@@ -828,10 +878,8 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -840,8 +888,8 @@
       "scopedVars": {
         "host": {
           "selected": true,
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "text": "desktop",
+          "value": "desktop"
         }
       },
       "seriesOverrides": [
@@ -861,7 +909,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "wmi_memory_available_bytes{instance=~\"$host\"}",
+          "expr": "windows_memory_available_bytes{instance=~\"$host\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -869,7 +917,7 @@
           "refId": "A"
         },
         {
-          "expr": "wmi_memory_pool_paged_bytes{instance=~\"$host\"}",
+          "expr": "windows_memory_pool_paged_bytes{instance=~\"$host\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -877,7 +925,7 @@
           "refId": "B"
         },
         {
-          "expr": "wmi_memory_committed_bytes{instance=~\"$host\"} > 0",
+          "expr": "windows_memory_committed_bytes{instance=~\"$host\"} > 0",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -935,6 +983,13 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -963,10 +1018,8 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -976,7 +1029,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "avg by (process) (wmi_process_private_bytes{instance=~\"$host\", process=~\".*\"})",
+          "expr": "avg by (process) (windows_process_private_bytes{instance=~\"$host\", process=~\".*\"})",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1034,6 +1087,13 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 2,
       "fillGradient": 0,
       "gridPos": {
@@ -1059,10 +1119,8 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1071,8 +1129,8 @@
       "scopedVars": {
         "host": {
           "selected": true,
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "text": "desktop",
+          "value": "desktop"
         }
       },
       "seriesOverrides": [],
@@ -1081,7 +1139,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "irate(wmi_net_bytes_received_total{instance=~\"$host\",nic!~\"(?i).*(isatap|tunneling).*$\"}[5m])",
+          "expr": "irate(windows_net_bytes_received_total{instance=~\"$host\",nic!~\"(?i).*(isatap|tunneling).*$\"}[5m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1089,7 +1147,7 @@
           "refId": "A"
         },
         {
-          "expr": "irate(wmi_net_bytes_sent_total{instance=~\"$host\",nic!~\"(?i).*(isatap|tunneling).*$\"}[5m])",
+          "expr": "irate(windows_net_bytes_sent_total{instance=~\"$host\",nic!~\"(?i).*(isatap|tunneling).*$\"}[5m])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -1148,6 +1206,13 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 3,
       "fillGradient": 0,
       "gridPos": {
@@ -1173,10 +1238,8 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1185,8 +1248,8 @@
       "scopedVars": {
         "host": {
           "selected": true,
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "text": "desktop",
+          "value": "desktop"
         }
       },
       "seriesOverrides": [],
@@ -1195,7 +1258,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "wmi_logical_disk_free_bytes{instance=~\"$host\", volume !~ \"(HarddiskVolume.+|[A-Z]:.+)\"}",
+          "expr": "windows_logical_disk_free_bytes{instance=~\"$host\", volume !~ \"(HarddiskVolume.+|[A-Z]:.+)\"}",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1254,6 +1317,13 @@
       "dashes": false,
       "datasource": "Prometheus",
       "decimals": null,
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 3,
       "fillGradient": 0,
       "gridPos": {
@@ -1279,10 +1349,8 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1291,8 +1359,8 @@
       "scopedVars": {
         "host": {
           "selected": true,
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "text": "desktop",
+          "value": "desktop"
         }
       },
       "seriesOverrides": [],
@@ -1301,7 +1369,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "irate(wmi_net_packets_outbound_discarded{instance=~\"$host\",nic!~\"isatap.+\"}[5m]) + irate(wmi_net_packets_outbound_errors{instance=~\"$host\"}[5m])",
+          "expr": "irate(windows_net_packets_outbound_discarded{instance=~\"$host\",nic!~\"isatap.+\"}[5m]) + irate(windows_net_packets_outbound_errors{instance=~\"$host\"}[5m])",
           "format": "time_series",
           "hide": false,
           "interval": "",
@@ -1310,7 +1378,7 @@
           "refId": "A"
         },
         {
-          "expr": "irate(wmi_net_packets_received_discarded{instance=~\"$host\", nic!~\"isatap.+\"}[5m]) + irate(wmi_net_packets_received_errors{instance=~\"$host\"}[5m])",
+          "expr": "irate(windows_net_packets_received_discarded{instance=~\"$host\", nic!~\"isatap.+\"}[5m]) + irate(windows_net_packets_received_errors{instance=~\"$host\"}[5m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1368,6 +1436,13 @@
       "dashLength": 10,
       "dashes": false,
       "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 3,
       "fillGradient": 0,
       "gridPos": {
@@ -1393,10 +1468,8 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1405,8 +1478,8 @@
       "scopedVars": {
         "host": {
           "selected": true,
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "text": "desktop",
+          "value": "desktop"
         }
       },
       "seriesOverrides": [],
@@ -1415,7 +1488,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "irate(wmi_logical_disk_write_bytes_total{instance=~\"$host\", volume !~ \"(HarddiskVolume.+|[A-Z]:.+)\"}[5m])",
+          "expr": "irate(windows_logical_disk_write_bytes_total{instance=~\"$host\", volume !~ \"(HarddiskVolume.+|[A-Z]:.+)\"}[5m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1423,7 +1496,7 @@
           "refId": "A"
         },
         {
-          "expr": "irate(wmi_logical_disk_read_bytes_total{instance=~\"$host\", volume !~ \"(HarddiskVolume.+|[A-Z]:.+)\"}[5m])",
+          "expr": "irate(windows_logical_disk_read_bytes_total{instance=~\"$host\", volume !~ \"(HarddiskVolume.+|[A-Z]:.+)\"}[5m])",
           "format": "time_series",
           "interval": "",
           "intervalFactor": 1,
@@ -1480,6 +1553,13 @@
       "dashes": false,
       "datasource": "Prometheus",
       "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
@@ -1502,10 +1582,8 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1515,13 +1593,13 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "rate(wmi_memory_swap_page_reads_total{instance=~\"$host\"}[1m])",
+          "expr": "rate(windows_memory_swap_page_reads_total{instance=~\"$host\"}[1m])",
           "interval": "",
           "legendFormat": "Swap Read",
           "refId": "A"
         },
         {
-          "expr": "rate(wmi_memory_swap_page_writes_total{instance=~\"$host\"}[1m])",
+          "expr": "rate(windows_memory_swap_page_writes_total{instance=~\"$host\"}[1m])",
           "interval": "",
           "legendFormat": "Swap Write",
           "refId": "B"
@@ -1572,7 +1650,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 22,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -1580,19 +1658,19 @@
       {
         "allValue": null,
         "current": {
-          "text": "desktop-linux",
-          "value": "desktop-linux"
+          "selected": false,
+          "text": "wmi",
+          "value": "wmi"
         },
         "datasource": "Prometheus",
-        "definition": "label_values(wmi_os_time, job)",
+        "definition": "label_values(windows_os_time, job)",
         "hide": 0,
         "includeAll": false,
-        "index": -1,
         "label": "Job",
         "multi": false,
         "name": "job",
         "options": [],
-        "query": "label_values(wmi_os_time, job)",
+        "query": "label_values(windows_os_time, job)",
         "refresh": 1,
         "regex": "",
         "skipUrlSync": false,
@@ -1606,19 +1684,19 @@
       {
         "allValue": null,
         "current": {
-          "text": "10.1.0.3:9182",
-          "value": "10.1.0.3:9182"
+          "selected": false,
+          "text": "desktop",
+          "value": "desktop"
         },
         "datasource": "Prometheus",
-        "definition": "label_values(wmi_os_time{job=~\"$job\"},instance)",
+        "definition": "label_values(windows_os_time{job=~\"$job\"},instance)",
         "hide": 0,
         "includeAll": false,
-        "index": -1,
         "label": "Hostname",
         "multi": true,
         "name": "host",
         "options": [],
-        "query": "label_values(wmi_os_time{job=~\"$job\"},instance)",
+        "query": "label_values(windows_os_time{job=~\"$job\"},instance)",
         "refresh": 1,
         "regex": "/([^]+)/",
         "skipUrlSync": false,
@@ -1663,8 +1741,5 @@
   "timezone": "",
   "title": "Windows Host",
   "uid": "PDhVYhQZk",
-  "variables": {
-    "list": []
-  },
-  "version": 14
+  "version": 17
 }
