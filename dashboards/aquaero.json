@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1596459707501,
+  "iteration": 1597062244225,
   "links": [],
   "panels": [
     {
@@ -27,8 +27,7 @@
       "decimals": 0,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -58,7 +57,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -68,16 +67,28 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "label_replace(aquaero_rpm{job=\"$job\", instance=\"$instance\", id=\"fan1\"}, \"nick\", \"Pump\", \"id\", \".*\")",
+          "expr": "aquaero_rpm{job=\"$job\", instance=\"$instance\", id=\"fan1\"}",
           "interval": "",
-          "legendFormat": "{{nick}}",
+          "legendFormat": "Pump",
           "refId": "B"
         },
         {
-          "expr": "label_replace(aquaero_rpm{job=\"$job\", instance=\"$instance\", id=\"fan2\"}, \"nick\", \"Fans\", \"id\", \".*\")",
+          "expr": "aquaero_rpm{job=\"$job\", instance=\"$instance\", id=\"fan2\"}",
           "interval": "",
-          "legendFormat": "{{nick}}",
+          "legendFormat": "Fans",
           "refId": "C"
+        },
+        {
+          "expr": "hwi_pump_rpm{instance=\"$instance\"}",
+          "interval": "",
+          "legendFormat": "Pump",
+          "refId": "D"
+        },
+        {
+          "expr": "hwi_fans_rpm{instance=\"$instance\"}",
+          "interval": "",
+          "legendFormat": "Fans",
+          "refId": "A"
         }
       ],
       "thresholds": [],
@@ -133,8 +144,7 @@
       "decimals": 1,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -164,7 +174,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -174,15 +184,15 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "label_replace(aquaero_temp{job=\"$job\", instance=\"$instance\", id=\"sensor1\"}, \"nick\", \"Water\", \"id\", \".*\")",
+          "expr": "aquaero_temp{job=\"$job\", instance=\"$instance\", id=\"sensor1\"}",
           "interval": "",
-          "legendFormat": "{{nick}}",
+          "legendFormat": "Water",
           "refId": "A"
         },
         {
-          "expr": "label_replace(aquaero_temp{job=\"$job\", instance=\"$instance\", id=\"sensor2\"}, \"nick\", \"Ambient\", \"id\", \".*\")",
+          "expr": "aquaero_temp{job=\"$job\", instance=\"$instance\", id=\"sensor2\"}",
           "interval": "",
-          "legendFormat": "{{nick}}",
+          "legendFormat": "Ambient",
           "refId": "B"
         },
         {
@@ -190,6 +200,24 @@
           "interval": "",
           "legendFormat": "Delta",
           "refId": "C"
+        },
+        {
+          "expr": "hwi_water_c{instance=\"$instance\"}",
+          "interval": "",
+          "legendFormat": "Water",
+          "refId": "D"
+        },
+        {
+          "expr": "hwi_ambient_c{instance=\"$instance\"}",
+          "interval": "",
+          "legendFormat": "Ambient",
+          "refId": "F"
+        },
+        {
+          "expr": "hwi_delta_c{instance=\"$instance\"}",
+          "interval": "",
+          "legendFormat": "Delta",
+          "refId": "E"
         }
       ],
       "thresholds": [],
@@ -243,8 +271,7 @@
       "decimals": 0,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -274,7 +301,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -344,8 +371,7 @@
       "decimals": 1,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -375,7 +401,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -447,20 +473,20 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "aquaero",
-          "value": "aquaero"
+          "text": "wmi",
+          "value": "wmi"
         },
         "datasource": "Prometheus",
-        "definition": "label_values(python_info, job)",
+        "definition": "query_result(python_info OR windows_os_time)",
         "hide": 0,
         "includeAll": false,
         "label": null,
         "multi": false,
         "name": "job",
         "options": [],
-        "query": "label_values(python_info, job)",
+        "query": "query_result(python_info OR windows_os_time)",
         "refresh": 2,
-        "regex": "",
+        "regex": "/job=\"([^\"]+)\"/",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
@@ -477,16 +503,16 @@
           "value": "desktop"
         },
         "datasource": "Prometheus",
-        "definition": "label_values(python_info{job=\"$job\"}, instance)",
+        "definition": "query_result(python_info{job=\"$job\"} OR windows_os_time{job=\"$job\"})",
         "hide": 0,
         "includeAll": false,
         "label": null,
         "multi": false,
         "name": "instance",
         "options": [],
-        "query": "label_values(python_info{job=\"$job\"}, instance)",
+        "query": "query_result(python_info{job=\"$job\"} OR windows_os_time{job=\"$job\"})",
         "refresh": 2,
-        "regex": "",
+        "regex": "/instance=\"([^\"]+)\"/",
         "skipUrlSync": false,
         "sort": 0,
         "tagValuesQuery": "",
@@ -517,5 +543,5 @@
   "timezone": "",
   "title": "Aquaero",
   "uid": "VOcd_lkGz",
-  "version": 8
+  "version": 10
 }
