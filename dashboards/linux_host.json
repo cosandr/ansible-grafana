@@ -2,7 +2,6 @@
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:533",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -17,7 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "iteration": 1596548852128,
+  "id": 24,
+  "iteration": 1599042115772,
   "links": [],
   "panels": [
     {
@@ -67,7 +67,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "node_time_seconds{instance=\"$instance\", job=\"$job\"} - node_boot_time_seconds{instance=\"$instance\", job=\"$job\"}",
@@ -136,7 +136,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "sum(rate(node_cpu_seconds_total{instance=\"$instance\", job=\"$job\", mode=\"idle\"}[1m])) * 100 / scalar(count(node_cpu_seconds_total{instance=\"$instance\", job=\"$job\", mode=\"user\"}))",
@@ -208,7 +208,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "count(node_cpu_seconds_total{instance=\"$instance\", mode=\"idle\"}) without (cpu,mode)",
@@ -283,7 +283,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "node_memory_MemAvailable_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -353,7 +353,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "node_memory_SwapFree_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -424,7 +424,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "sum(node_filesystem_free_bytes{instance=\"$instance\", job=\"$job\", mountpoint=\"/\"})",
@@ -451,8 +451,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -482,7 +481,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -557,8 +556,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -588,7 +586,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -673,8 +671,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -704,7 +701,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -811,7 +808,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -847,7 +844,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:293",
           "decimals": 0,
           "format": "celsius",
           "label": null,
@@ -857,7 +853,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:294",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -912,7 +907,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -948,7 +943,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:293",
           "decimals": 0,
           "format": "rotrpm",
           "label": null,
@@ -958,7 +952,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:294",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -981,8 +974,7 @@
       "decimals": 1,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1010,7 +1002,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1046,7 +1038,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:884",
           "decimals": 1,
           "format": "hertz",
           "label": "",
@@ -1056,7 +1047,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:885",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1078,8 +1068,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1107,7 +1096,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1143,7 +1132,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:226",
           "decimals": null,
           "format": "celsius",
           "label": "",
@@ -1153,7 +1141,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:227",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1178,8 +1165,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1211,7 +1197,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1251,7 +1237,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:1033",
           "format": "percent",
           "label": null,
           "logBase": 1,
@@ -1260,7 +1245,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:1034",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1284,8 +1268,7 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1314,13 +1297,12 @@
       "linewidth": 2,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "$$hashKey": "object:561",
           "alias": "/MD.*/",
           "dashLength": 2,
           "dashes": true,
@@ -1369,7 +1351,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:141",
           "decimals": null,
           "format": "decbytes",
           "label": "",
@@ -1379,7 +1360,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:142",
           "format": "decbytes",
           "label": "",
           "logBase": 1,
@@ -1436,7 +1416,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "node_filesystem_free_bytes{instance=\"$instance\", job=\"$job\", fstype!~\"(tmpfs|nfs\\\\d*)\", mountpoint!~\".*\\\\.snapshots.*\"}",
@@ -1462,8 +1442,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1495,23 +1474,20 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
       "seriesOverrides": [
         {
-          "$$hashKey": "object:780",
           "alias": "read",
           "yaxis": 1
         },
         {
-          "$$hashKey": "object:781",
           "alias": "written",
           "yaxis": 1
         },
         {
-          "$$hashKey": "object:782",
           "alias": "io time",
           "yaxis": 2
         }
@@ -1567,7 +1543,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:807",
           "format": "Bps",
           "label": null,
           "logBase": 1,
@@ -1576,7 +1551,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:808",
           "format": "ms",
           "label": null,
           "logBase": 1,
@@ -1601,8 +1575,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1634,7 +1607,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1742,8 +1715,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1775,7 +1747,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1854,8 +1826,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1887,7 +1858,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1975,8 +1946,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -2007,7 +1977,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2196,5 +2166,5 @@
   "timezone": "browser",
   "title": "Linux Host",
   "uid": "BErpVUjWz1",
-  "version": 12
+  "version": 13
 }

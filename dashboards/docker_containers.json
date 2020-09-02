@@ -2,7 +2,6 @@
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:4599",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -17,7 +16,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "iteration": 1596366309559,
+  "id": 8,
+  "iteration": 1599042156127,
   "links": [],
   "panels": [
     {
@@ -592,8 +592,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -623,7 +622,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -694,8 +693,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -725,7 +723,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -801,8 +799,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -834,7 +831,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -937,8 +934,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -970,7 +966,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1010,7 +1006,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:405",
           "format": "percent",
           "label": null,
           "logBase": 1,
@@ -1019,7 +1014,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:406",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1044,8 +1038,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1077,7 +1070,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1149,8 +1142,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1182,7 +1174,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1254,8 +1246,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1287,7 +1278,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1359,8 +1350,7 @@
       "error": false,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1392,7 +1382,7 @@
       "links": [],
       "nullPointMode": "connected",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1517,7 +1507,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "DreSRV",
           "value": "DreSRV"
         },
@@ -1574,5 +1564,5 @@
   "timezone": "browser",
   "title": "Docker Containers",
   "uid": "5yfq0LCWk",
-  "version": 3
+  "version": 4
 }

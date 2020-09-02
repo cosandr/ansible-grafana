@@ -16,8 +16,7 @@
   "editable": true,
   "gnetId": 1860,
   "graphTooltip": 0,
-  "id": 12,
-  "iteration": 1586712749283,
+  "iteration": 1599042186358,
   "links": [],
   "panels": [
     {
@@ -39,6 +38,45 @@
       "cacheTimeout": null,
       "datasource": "Prometheus",
       "description": "Busy state of all CPU cores together",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "nullValueMode": "null",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 85
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 95
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -48,53 +86,18 @@
       "id": 20,
       "links": [],
       "options": {
-        "fieldOptions": {
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [
-              {
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "nullValueMode": "null",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 85
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 95
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": [],
+          "fields": "",
           "values": false
         },
-        "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.7.2",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "(((count(count(node_cpu_seconds_total{instance=\"$instance\",job=~\"$job\"}) by (cpu))) - avg(sum by (mode)(irate(node_cpu_seconds_total{mode='idle',instance=\"$instance\",job=~\"$job\"}[5m])))) * 100) / count(count(node_cpu_seconds_total{instance=\"$instance\",job=~\"$job\"}) by (cpu))",
@@ -112,6 +115,45 @@
       "cacheTimeout": null,
       "datasource": "Prometheus",
       "description": "Busy state of all CPU cores together (5 min average)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "nullValueMode": "null",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 85
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 95
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -121,53 +163,18 @@
       "id": 155,
       "links": [],
       "options": {
-        "fieldOptions": {
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [
-              {
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "nullValueMode": "null",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 85
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 95
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": [],
+          "fields": "",
           "values": false
         },
-        "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.7.2",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "avg(node_load5{instance=\"$instance\",job=~\"$job\"}) /  count(count(node_cpu_seconds_total{instance=\"$instance\",job=~\"$job\"}) by (cpu)) * 100",
@@ -185,6 +192,45 @@
       "cacheTimeout": null,
       "datasource": "Prometheus",
       "description": "Busy state of all CPU cores together (15 min average)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "nullValueMode": "null",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 85
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 95
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -194,53 +240,18 @@
       "id": 19,
       "links": [],
       "options": {
-        "fieldOptions": {
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [
-              {
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "nullValueMode": "null",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 85
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 95
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": [],
+          "fields": "",
           "values": false
         },
-        "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.7.2",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "avg(node_load15{instance=\"$instance\",job=~\"$job\"}) /  count(count(node_cpu_seconds_total{instance=\"$instance\",job=~\"$job\"}) by (cpu)) * 100",
@@ -257,6 +268,38 @@
       "cacheTimeout": null,
       "datasource": "Prometheus",
       "description": "Non available RAM memory",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "decimals": 0,
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "nullValueMode": "null",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 80
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -267,52 +310,26 @@
       "id": 16,
       "links": [],
       "options": {
-        "fieldOptions": {
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "decimals": 0,
-            "mappings": [],
-            "max": 100,
-            "min": 0,
-            "nullValueMode": "null",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 80
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 90
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": [],
+          "fields": "",
           "values": false
         },
-        "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.7.2",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "((node_memory_MemTotal_bytes{instance=\"$instance\",job=~\"$job\"} - node_memory_MemFree_bytes{instance=\"$instance\",job=~\"$job\"}) / (node_memory_MemTotal_bytes{instance=\"$instance\",job=~\"$job\"} )) * 100",
           "format": "time_series",
           "hide": true,
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": " ",
           "refId": "A",
           "step": 900
         },
@@ -320,7 +337,9 @@
           "expr": "100 - ((node_memory_MemAvailable_bytes{instance=\"$instance\",job=~\"$job\"} * 100) / node_memory_MemTotal_bytes{instance=\"$instance\",job=~\"$job\"})",
           "format": "time_series",
           "hide": false,
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": " ",
           "refId": "B",
           "step": 900
         }
@@ -332,6 +351,45 @@
       "cacheTimeout": null,
       "datasource": "Prometheus",
       "description": "Used Swap",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "nullValueMode": "null",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 10
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 25
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -341,57 +399,24 @@
       "id": 21,
       "links": [],
       "options": {
-        "fieldOptions": {
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [
-              {
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "nullValueMode": "null",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 10
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 25
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": [],
+          "fields": "",
           "values": false
         },
-        "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.7.2",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "((node_memory_SwapTotal_bytes{instance=\"$instance\",job=~\"$job\"} - node_memory_SwapFree_bytes{instance=\"$instance\",job=~\"$job\"}) / (node_memory_SwapTotal_bytes{instance=\"$instance\",job=~\"$job\"} )) * 100",
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": " ",
           "refId": "A",
           "step": 900
         }
@@ -403,6 +428,45 @@
       "cacheTimeout": null,
       "datasource": "Prometheus",
       "description": "Used Root FS",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {},
+          "mappings": [
+            {
+              "id": 0,
+              "op": "=",
+              "text": "N/A",
+              "type": 1,
+              "value": "null"
+            }
+          ],
+          "max": 100,
+          "min": 0,
+          "nullValueMode": "null",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "rgba(50, 172, 45, 0.97)",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 80
+              },
+              {
+                "color": "rgba(245, 54, 54, 0.9)",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 4,
         "w": 3,
@@ -412,58 +476,25 @@
       "id": 154,
       "links": [],
       "options": {
-        "fieldOptions": {
+        "orientation": "horizontal",
+        "reduceOptions": {
           "calcs": [
             "lastNotNull"
           ],
-          "defaults": {
-            "color": {
-              "mode": "thresholds"
-            },
-            "mappings": [
-              {
-                "id": 0,
-                "op": "=",
-                "text": "N/A",
-                "type": 1,
-                "value": "null"
-              }
-            ],
-            "max": 100,
-            "min": 0,
-            "nullValueMode": "null",
-            "thresholds": {
-              "mode": "absolute",
-              "steps": [
-                {
-                  "color": "rgba(50, 172, 45, 0.97)",
-                  "value": null
-                },
-                {
-                  "color": "rgba(237, 129, 40, 0.89)",
-                  "value": 80
-                },
-                {
-                  "color": "rgba(245, 54, 54, 0.9)",
-                  "value": 90
-                }
-              ]
-            },
-            "unit": "percent"
-          },
-          "overrides": [],
+          "fields": "",
           "values": false
         },
-        "orientation": "horizontal",
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "6.7.2",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "100 - ((node_filesystem_avail_bytes{instance=\"$instance\",job=~\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"} * 100) / node_filesystem_size_bytes{instance=\"$instance\",job=~\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"})",
           "format": "time_series",
+          "interval": "",
           "intervalFactor": 1,
+          "legendFormat": " ",
           "refId": "A",
           "step": 900
         }
@@ -482,6 +513,12 @@
       ],
       "datasource": "Prometheus",
       "description": "Total number of CPU cores",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "short",
       "gauge": {
         "maxValue": 100,
@@ -565,6 +602,12 @@
       "datasource": "Prometheus",
       "decimals": 0,
       "description": "Total RAM",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -614,7 +657,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "node_memory_MemTotal_bytes{instance=\"DreSRV\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=~\"$job\"}",
@@ -648,6 +691,12 @@
       "datasource": "Prometheus",
       "decimals": 0,
       "description": "Total SWAP",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -697,7 +746,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "node_memory_SwapTotal_bytes{instance=\"DreSRV\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_memory_SwapTotal_bytes{instance=\"$instance\",job=~\"$job\"}",
@@ -731,6 +780,12 @@
       "datasource": "Prometheus",
       "decimals": 2,
       "description": "System Load (1m avg)",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "short",
       "gauge": {
         "maxValue": 100,
@@ -780,7 +835,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "node_load1{instance=\"DreSRV\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_load1{instance=\"$instance\",job=~\"$job\"}",
@@ -815,6 +870,12 @@
       "datasource": "Prometheus",
       "decimals": 0,
       "description": "Total RootFS",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "bytes",
       "gauge": {
         "maxValue": 100,
@@ -864,7 +925,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "node_filesystem_size_bytes{device=\"/dev/mapper/luks-a65741ed-55ad-459c-b47a-03712af971e8\", fstype=\"btrfs\", instance=\"DreSRV\", job=\"node\", mountpoint=\"/\"}",
       "targets": [
         {
           "expr": "node_filesystem_size_bytes{instance=\"$instance\",job=~\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"}",
@@ -900,6 +961,12 @@
       "datasource": "Prometheus",
       "decimals": 1,
       "description": "System uptime",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
       "format": "s",
       "gauge": {
         "maxValue": 100,
@@ -949,7 +1016,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "",
+      "tableColumn": "{instance=\"DreSRV\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_time_seconds{instance=\"$instance\",job=~\"$job\"} - node_boot_time_seconds{instance=\"$instance\",job=~\"$job\"}",
@@ -1009,6 +1076,13 @@
       "datasource": "Prometheus",
       "decimals": 2,
       "description": "Basic CPU info",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 4,
       "fillGradient": 0,
       "gridPos": {
@@ -1038,10 +1112,8 @@
       "links": [],
       "maxPerRow": 6,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": true,
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1191,6 +1263,13 @@
       "datasource": "Prometheus",
       "decimals": 2,
       "description": "Basic memory usage",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 4,
       "fillGradient": 0,
       "gridPos": {
@@ -1218,10 +1297,8 @@
       "links": [],
       "maxPerRow": 6,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1366,6 +1443,13 @@
       "dashes": false,
       "datasource": "Prometheus",
       "description": "Basic network info per interface",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 4,
       "fillGradient": 0,
       "gridPos": {
@@ -1395,10 +1479,8 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1478,6 +1560,13 @@
       "datasource": "Prometheus",
       "decimals": 3,
       "description": "Disk space used of all filesystems mounted",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {},
+          "links": []
+        },
+        "overrides": []
+      },
       "fill": 4,
       "fillGradient": 0,
       "gridPos": {
@@ -1507,10 +1596,8 @@
       "links": [],
       "maxPerRow": 6,
       "nullPointMode": "null",
-      "options": {
-        "dataLinks": []
-      },
       "percentage": false,
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1599,6 +1686,13 @@
           "datasource": "Prometheus",
           "decimals": 2,
           "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 4,
           "fillGradient": 0,
           "gridPos": {
@@ -1628,10 +1722,8 @@
           "links": [],
           "maxPerRow": 6,
           "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
           "percentage": true,
+          "pluginVersion": "7.1.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1784,6 +1876,13 @@
           "datasource": "Prometheus",
           "decimals": 2,
           "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 4,
           "fillGradient": 0,
           "gridPos": {
@@ -1813,10 +1912,8 @@
           "links": [],
           "maxPerRow": 6,
           "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
           "percentage": false,
+          "pluginVersion": "7.1.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -1963,6 +2060,13 @@
           "dashLength": 10,
           "dashes": false,
           "datasource": "Prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 4,
           "fillGradient": 0,
           "gridPos": {
@@ -1988,10 +2092,8 @@
           "linewidth": 1,
           "links": [],
           "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
           "percentage": false,
+          "pluginVersion": "7.1.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2071,6 +2173,13 @@
           "datasource": "Prometheus",
           "decimals": 3,
           "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 4,
           "fillGradient": 0,
           "gridPos": {
@@ -2100,10 +2209,8 @@
           "links": [],
           "maxPerRow": 6,
           "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
           "percentage": false,
+          "pluginVersion": "7.1.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2169,6 +2276,13 @@
           "dashes": false,
           "datasource": "Prometheus",
           "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 2,
           "fillGradient": 0,
           "gridPos": {
@@ -2196,10 +2310,8 @@
           "links": [],
           "maxPerRow": 6,
           "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
           "percentage": false,
+          "pluginVersion": "7.1.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2363,6 +2475,13 @@
           "datasource": "Prometheus",
           "decimals": 3,
           "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 4,
           "fillGradient": 0,
           "gridPos": {
@@ -2391,10 +2510,8 @@
           "links": [],
           "maxPerRow": 6,
           "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
           "percentage": false,
+          "pluginVersion": "7.1.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -2498,6 +2615,13 @@
           "datasource": "Prometheus",
           "decimals": 3,
           "description": "",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {},
+              "links": []
+            },
+            "overrides": []
+          },
           "fill": 4,
           "fillGradient": 0,
           "gridPos": {
@@ -2526,10 +2650,8 @@
           "links": [],
           "maxPerRow": 6,
           "nullPointMode": "null",
-          "options": {
-            "dataLinks": []
-          },
           "percentage": false,
+          "pluginVersion": "7.1.5",
           "pointradius": 5,
           "points": false,
           "renderer": "flot",
@@ -12153,7 +12275,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 22,
+  "schemaVersion": 26,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -12179,6 +12301,7 @@
       {
         "allValue": null,
         "current": {
+          "selected": false,
           "text": "node",
           "value": "node"
         },
@@ -12186,7 +12309,6 @@
         "definition": "",
         "hide": 0,
         "includeAll": false,
-        "index": -1,
         "label": "Job",
         "multi": false,
         "name": "job",
@@ -12262,8 +12384,5 @@
   "timezone": "browser",
   "title": "Node Exporter Full",
   "uid": "rYdddlPWk",
-  "variables": {
-    "list": []
-  },
-  "version": 1
+  "version": 5
 }

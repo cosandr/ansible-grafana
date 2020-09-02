@@ -16,7 +16,8 @@
   "editable": true,
   "gnetId": 6387,
   "graphTooltip": 1,
-  "iteration": 1596365550445,
+  "id": 17,
+  "iteration": 1599042510403,
   "links": [],
   "panels": [
     {
@@ -74,7 +75,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "sum(nvidia_utilization_gpu{instance=\"$instance\"}) / sum(nvidia_device_count{instance=\"$instance\"})",
@@ -142,7 +143,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "sum(nvidia_utilization_memory{instance=\"$instance\"}) / sum(nvidia_device_count{instance=\"$instance\"})",
@@ -163,8 +164,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -195,7 +195,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -236,7 +236,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:353",
           "decimals": 0,
           "format": "percent",
           "label": null,
@@ -246,7 +245,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:354",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -268,8 +266,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -300,7 +297,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -339,7 +336,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:403",
           "decimals": 0,
           "format": "percent",
           "label": null,
@@ -349,7 +345,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:404",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -504,7 +499,7 @@
         },
         "textMode": "value"
       },
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "targets": [
         {
           "expr": "nvidia_driver_info{instance=\"$instance\"}",
@@ -531,8 +526,7 @@
       "decimals": 1,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -565,7 +559,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -613,7 +607,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:307",
           "decimals": 1,
           "format": "celsius",
           "label": "",
@@ -623,7 +616,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:308",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -646,8 +638,7 @@
       "decimals": 1,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -679,7 +670,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -717,7 +708,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:394",
           "decimals": 0,
           "format": "watt",
           "label": null,
@@ -727,7 +717,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:395",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -750,8 +739,7 @@
       "decimals": 2,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -781,7 +769,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -817,7 +805,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:248",
           "decimals": null,
           "format": "hertz",
           "label": "",
@@ -827,7 +814,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:249",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -851,8 +837,7 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -882,7 +867,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -918,7 +903,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:211",
           "decimals": 1,
           "format": "hertz",
           "label": null,
@@ -928,7 +912,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:212",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -950,8 +933,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -979,7 +961,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1021,7 +1003,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:201",
           "decimals": 0,
           "format": "percent",
           "label": null,
@@ -1031,7 +1012,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:202",
           "format": "percent",
           "label": null,
           "logBase": 1,
@@ -1055,8 +1035,7 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1087,7 +1066,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1154,8 +1133,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1183,7 +1161,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1255,8 +1233,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1288,7 +1265,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1429,5 +1406,5 @@
   "timezone": "",
   "title": "Nvidia GPU",
   "uid": "fnvhnzGmk",
-  "version": 14
+  "version": 16
 }

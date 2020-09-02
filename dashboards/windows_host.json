@@ -2,7 +2,6 @@
   "annotations": {
     "list": [
       {
-        "$$hashKey": "object:4174",
         "builtIn": 1,
         "datasource": "-- Grafana --",
         "enable": true,
@@ -17,7 +16,8 @@
   "editable": true,
   "gnetId": 11745,
   "graphTooltip": 0,
-  "iteration": 1596529942303,
+  "id": 20,
+  "iteration": 1599042569519,
   "links": [],
   "panels": [
     {
@@ -60,12 +60,10 @@
       "mappingType": 1,
       "mappingTypes": [
         {
-          "$$hashKey": "object:4468",
           "name": "value to text",
           "value": 1
         },
         {
-          "$$hashKey": "object:4469",
           "name": "range to text",
           "value": 2
         }
@@ -118,7 +116,6 @@
       "valueFontSize": "70%",
       "valueMaps": [
         {
-          "$$hashKey": "object:4471",
           "op": "=",
           "text": "N/A",
           "value": "null"
@@ -134,8 +131,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -166,7 +162,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -213,7 +209,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:5129",
           "decimals": 0,
           "format": "short",
           "label": "",
@@ -223,7 +218,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:5130",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -483,7 +477,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "repeat": "host",
       "repeatDirection": "v",
       "scopedVars": {
@@ -554,7 +548,6 @@
       },
       "styles": [
         {
-          "$$hashKey": "object:5285",
           "alias": "Disk",
           "align": "auto",
           "colorMode": null,
@@ -574,7 +567,6 @@
           "unit": "short"
         },
         {
-          "$$hashKey": "object:5286",
           "alias": "Available",
           "align": "auto",
           "colorMode": null,
@@ -592,7 +584,6 @@
           "unit": "bytes"
         },
         {
-          "$$hashKey": "object:5287",
           "alias": "",
           "align": "auto",
           "colorMode": null,
@@ -632,8 +623,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -664,7 +654,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -741,8 +731,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -775,7 +764,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -813,7 +802,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:5017",
           "decimals": null,
           "format": "short",
           "label": "CPU load",
@@ -823,7 +811,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:5018",
           "format": "short",
           "label": "System process",
           "logBase": 1,
@@ -846,8 +833,7 @@
       "decimals": 1,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -879,7 +865,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -894,12 +880,10 @@
       },
       "seriesOverrides": [
         {
-          "$$hashKey": "object:6084",
           "alias": "Virtual",
           "hiddenSeries": true
         },
         {
-          "$$hashKey": "object:6095",
           "alias": "Physical",
           "hiddenSeries": true
         }
@@ -953,7 +937,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:5975",
           "decimals": 0,
           "format": "bytes",
           "label": "RAM",
@@ -963,7 +946,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:5976",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -985,8 +967,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1019,7 +1000,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1057,7 +1038,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:7945",
           "decimals": null,
           "format": "decbytes",
           "label": null,
@@ -1067,7 +1047,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:7946",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1089,8 +1068,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1120,7 +1098,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1176,7 +1154,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:5629",
           "decimals": 0,
           "format": "bytes",
           "label": "Load",
@@ -1186,7 +1163,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:5630",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1208,8 +1184,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1239,7 +1214,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1286,7 +1261,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:6479",
           "decimals": 0,
           "format": "bytes",
           "label": "",
@@ -1296,7 +1270,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:6480",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1319,8 +1292,7 @@
       "decimals": null,
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1350,7 +1322,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1406,7 +1378,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:5444",
           "decimals": 0,
           "format": "pps",
           "label": "Load",
@@ -1416,7 +1387,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:5445",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1438,8 +1408,7 @@
       "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1469,7 +1438,7 @@
       "links": [],
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1555,8 +1524,7 @@
       "description": "",
       "fieldConfig": {
         "defaults": {
-          "custom": {},
-          "links": []
+          "custom": {}
         },
         "overrides": []
       },
@@ -1583,7 +1551,7 @@
       "linewidth": 1,
       "nullPointMode": "null",
       "percentage": false,
-      "pluginVersion": "7.1.1",
+      "pluginVersion": "7.1.5",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1625,7 +1593,6 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:4917",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1634,7 +1601,6 @@
           "show": true
         },
         {
-          "$$hashKey": "object:4918",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -1741,5 +1707,5 @@
   "timezone": "",
   "title": "Windows Host",
   "uid": "PDhVYhQZk",
-  "version": 17
+  "version": 19
 }
