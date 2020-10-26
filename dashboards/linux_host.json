@@ -16,8 +16,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 1,
-  "id": 24,
-  "iteration": 1599042115772,
+  "iteration": 1603714089926,
   "links": [],
   "panels": [
     {
@@ -67,7 +66,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "targets": [
         {
           "expr": "node_time_seconds{instance=\"$instance\", job=\"$job\"} - node_boot_time_seconds{instance=\"$instance\", job=\"$job\"}",
@@ -136,7 +135,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "targets": [
         {
           "expr": "sum(rate(node_cpu_seconds_total{instance=\"$instance\", job=\"$job\", mode=\"idle\"}[1m])) * 100 / scalar(count(node_cpu_seconds_total{instance=\"$instance\", job=\"$job\", mode=\"user\"}))",
@@ -208,7 +207,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "targets": [
         {
           "expr": "count(node_cpu_seconds_total{instance=\"$instance\", mode=\"idle\"}) without (cpu,mode)",
@@ -283,7 +282,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "targets": [
         {
           "expr": "node_memory_MemAvailable_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -353,7 +352,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "targets": [
         {
           "expr": "node_memory_SwapFree_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -424,7 +423,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "targets": [
         {
           "expr": "sum(node_filesystem_free_bytes{instance=\"$instance\", job=\"$job\", mountpoint=\"/\"})",
@@ -480,8 +479,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -585,8 +587,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -700,8 +705,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -807,8 +815,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -906,8 +917,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1001,8 +1015,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1095,8 +1112,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1196,8 +1216,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1296,8 +1319,11 @@
       "lines": true,
       "linewidth": 2,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1416,7 +1442,7 @@
         },
         "textMode": "value_and_name"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "targets": [
         {
           "expr": "node_filesystem_free_bytes{instance=\"$instance\", job=\"$job\", fstype!~\"(tmpfs|nfs\\\\d*)\", mountpoint!~\".*\\\\.snapshots.*\"}",
@@ -1473,8 +1499,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1606,8 +1635,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1746,8 +1778,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1857,8 +1892,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1976,8 +2014,11 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.2.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -2032,6 +2073,205 @@
           "show": true
         },
         {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 63
+      },
+      "hiddenSeries": false,
+      "id": 30,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "node_power_supply_capacity{instance=\"$instance\", job=\"$job\"}",
+          "interval": "",
+          "legendFormat": "{{power_supply}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Power Supply Capacity",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:340",
+          "decimals": 0,
+          "format": "percent",
+          "label": "",
+          "logBase": 1,
+          "max": "100",
+          "min": "0",
+          "show": true
+        },
+        {
+          "$$hashKey": "object:341",
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": "Prometheus",
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "fill": 1,
+      "fillGradient": 0,
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 63
+      },
+      "hiddenSeries": false,
+      "id": 31,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "show": true,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
+      "percentage": false,
+      "pluginVersion": "7.2.2",
+      "pointradius": 2,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "node_power_supply_power_watt{instance=\"$instance\", job=\"$job\"}",
+          "interval": "",
+          "legendFormat": "{{power_supply}}",
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeRegions": [],
+      "timeShift": null,
+      "title": "Power Supply Watt",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "$$hashKey": "object:340",
+          "decimals": 0,
+          "format": "watt",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "$$hashKey": "object:341",
           "format": "short",
           "label": null,
           "logBase": 1,
@@ -2109,7 +2349,7 @@
       {
         "allValue": null,
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "DreSRV",
           "value": "DreSRV"
         },
@@ -2166,5 +2406,5 @@
   "timezone": "browser",
   "title": "Linux Host",
   "uid": "BErpVUjWz1",
-  "version": 13
+  "version": 14
 }
