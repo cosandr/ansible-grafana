@@ -1,5 +1,6 @@
 ---
 grafana_version: latest
+grafana_skip_install: false
 grafana_yum_repo_template: etc/yum.repos.d/grafana.repo.j2
 grafana_manage_repo: true
 
