@@ -26,7 +26,9 @@
   become: true
   tags:
     - grafana_install
-  when: not grafana_skip_install
+  when:
+    - not grafana_skip_install
+    - "'skip_install' not in ansible_run_tags"
 
 - include: configure.yml
   become: true
