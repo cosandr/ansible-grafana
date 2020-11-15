@@ -16,8 +16,7 @@
   "editable": true,
   "gnetId": 6387,
   "graphTooltip": 1,
-  "id": 17,
-  "iteration": 1599042510403,
+  "iteration": 1605477190818,
   "links": [],
   "panels": [
     {
@@ -75,7 +74,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "targets": [
         {
           "expr": "sum(nvidia_utilization_gpu{instance=\"$instance\"}) / sum(nvidia_device_count{instance=\"$instance\"})",
@@ -143,7 +142,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "targets": [
         {
           "expr": "sum(nvidia_utilization_memory{instance=\"$instance\"}) / sum(nvidia_device_count{instance=\"$instance\"})",
@@ -194,8 +193,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -296,8 +298,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -499,7 +504,7 @@
         },
         "textMode": "value"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "targets": [
         {
           "expr": "nvidia_driver_info{instance=\"$instance\"}",
@@ -558,8 +563,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -669,8 +677,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -768,8 +779,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -866,8 +880,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -960,8 +977,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1065,8 +1085,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1076,10 +1099,10 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "(\n  nvidia_utilization_process_smutil{instance=\"$instance\"}\n)\n   + on(pid) group_left(name)\n(\n   0 * nvidia_utilization_process_name{instance=\"$instance\"}\n)",
+          "expr": "sum without (pid) (\n  nvidia_utilization_process_smutil{instance=\"$instance\"}\n  * on(pid) group_left(name) nvidia_utilization_process_name{instance=\"$instance\"}\n)",
           "interval": "",
           "intervalFactor": 4,
-          "legendFormat": "gpu{{minor}} - {{name}} [{{pid}}]",
+          "legendFormat": "gpu{{minor}} - {{name}}",
           "refId": "A"
         }
       ],
@@ -1160,8 +1183,11 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -1264,8 +1290,11 @@
       "linewidth": 1,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "7.3.2",
       "pointradius": 5,
       "points": false,
       "renderer": "flot",
@@ -1347,6 +1376,7 @@
         },
         "datasource": "Prometheus",
         "definition": "label_values(nvidia_info, instance)",
+        "error": null,
         "hide": 0,
         "includeAll": false,
         "label": "Instance",
@@ -1366,6 +1396,7 @@
       },
       {
         "datasource": "Prometheus",
+        "error": null,
         "filters": [],
         "hide": 0,
         "label": "",
@@ -1406,5 +1437,5 @@
   "timezone": "",
   "title": "Nvidia GPU",
   "uid": "fnvhnzGmk",
-  "version": 16
+  "version": 17
 }
