@@ -47,8 +47,8 @@
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
-          "h": 5,
-          "w": 13,
+          "h": 8,
+          "w": 12,
           "x": 0,
           "y": 0
         },
@@ -136,6 +136,120 @@
         "dashLength": 10,
         "dashes": false,
         "datasource": "Prometheus",
+        "decimals": 4,
+        "fieldConfig": {
+          "defaults": {
+            "custom": {}
+          },
+          "overrides": []
+        },
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        },
+        "hiddenSeries": false,
+        "id": 2,
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": true,
+          "max": false,
+          "min": false,
+          "rightSide": true,
+          "show": true,
+          "total": false,
+          "values": true
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "alertThreshold": true
+        },
+        "percentage": false,
+        "pluginVersion": "7.3.7",
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [
+          {
+            "$$hashKey": "object:956",
+            "alias": "/Fiat.*/",
+            "yaxis": 2
+          }
+        ],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "expr": "mph_balance_confirmed{instance=\"$instance\", coin=\"$coin\"} + mph_balance_unconfirmed{instance=\"$instance\", coin=\"$coin\"}",
+            "interval": "",
+            "legendFormat": "{{coin}}",
+            "queryType": "randomWalk",
+            "refId": "A"
+          },
+          {
+            "expr": "(mph_balance_confirmed{instance=\"$instance\", coin=\"$coin\"} + mph_balance_unconfirmed{instance=\"$instance\", coin=\"$coin\"}) * ignoring(id,currency) mph_price{instance=\"$instance\", coin=\"$coin\"} + on(coin) group_left(currency) (0*mph_price{instance=\"$instance\", coin=\"$coin\"})",
+            "interval": "",
+            "legendFormat": "Fiat ({{currency}})",
+            "refId": "C"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Balance",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "$$hashKey": "object:963",
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "$$hashKey": "object:964",
+            "decimals": null,
+            "format": "short",
+            "label": "",
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      },
+      {
+        "aliasColors": {},
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "Prometheus",
         "description": "",
         "fieldConfig": {
           "defaults": {
@@ -160,10 +274,10 @@
         "fill": 1,
         "fillGradient": 0,
         "gridPos": {
-          "h": 5,
-          "w": 11,
-          "x": 13,
-          "y": 0
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
         },
         "hiddenSeries": false,
         "id": 8,
@@ -249,122 +363,6 @@
         "dashLength": 10,
         "dashes": false,
         "datasource": "Prometheus",
-        "fieldConfig": {
-          "defaults": {
-            "custom": {}
-          },
-          "overrides": []
-        },
-        "fill": 1,
-        "fillGradient": 0,
-        "gridPos": {
-          "h": 8,
-          "w": 24,
-          "x": 0,
-          "y": 5
-        },
-        "hiddenSeries": false,
-        "id": 2,
-        "legend": {
-          "alignAsTable": true,
-          "avg": false,
-          "current": true,
-          "max": false,
-          "min": false,
-          "rightSide": true,
-          "show": true,
-          "total": false,
-          "values": true
-        },
-        "lines": true,
-        "linewidth": 1,
-        "nullPointMode": "null",
-        "options": {
-          "alertThreshold": true
-        },
-        "percentage": false,
-        "pluginVersion": "7.3.7",
-        "pointradius": 2,
-        "points": false,
-        "renderer": "flot",
-        "seriesOverrides": [
-          {
-            "alias": "Unconfirmed",
-            "yaxis": 2
-          }
-        ],
-        "spaceLength": 10,
-        "stack": false,
-        "steppedLine": false,
-        "targets": [
-          {
-            "expr": "mph_balance_confirmed{instance=\"$instance\", coin=\"$coin\"} + mph_balance_unconfirmed{instance=\"$instance\", coin=\"$coin\"}",
-            "interval": "",
-            "legendFormat": "Total",
-            "queryType": "randomWalk",
-            "refId": "A"
-          },
-          {
-            "expr": "mph_balance_confirmed{instance=\"$instance\", coin=\"$coin\"}",
-            "interval": "",
-            "legendFormat": "Confirmed",
-            "refId": "B"
-          },
-          {
-            "expr": "mph_balance_unconfirmed{instance=\"$instance\", coin=\"$coin\"}",
-            "interval": "",
-            "legendFormat": "Unconfirmed",
-            "refId": "C"
-          }
-        ],
-        "thresholds": [],
-        "timeFrom": null,
-        "timeRegions": [],
-        "timeShift": null,
-        "title": "Balance",
-        "tooltip": {
-          "shared": true,
-          "sort": 0,
-          "value_type": "individual"
-        },
-        "type": "graph",
-        "xaxis": {
-          "buckets": null,
-          "mode": "time",
-          "name": null,
-          "show": true,
-          "values": []
-        },
-        "yaxes": [
-          {
-            "format": "short",
-            "label": null,
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
-          },
-          {
-            "decimals": null,
-            "format": "short",
-            "label": "",
-            "logBase": 1,
-            "max": null,
-            "min": null,
-            "show": true
-          }
-        ],
-        "yaxis": {
-          "align": false,
-          "alignLevel": null
-        }
-      },
-      {
-        "aliasColors": {},
-        "bars": false,
-        "dashLength": 10,
-        "dashes": false,
-        "datasource": "Prometheus",
         "description": "",
         "fieldConfig": {
           "defaults": {
@@ -376,9 +374,9 @@
         "fillGradient": 0,
         "gridPos": {
           "h": 8,
-          "w": 24,
-          "x": 0,
-          "y": 13
+          "w": 12,
+          "x": 12,
+          "y": 8
         },
         "hiddenSeries": false,
         "id": 6,
