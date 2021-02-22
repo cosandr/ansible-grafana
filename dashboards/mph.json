@@ -15,7 +15,7 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1613599580466,
+  "iteration": 1613999645912,
   "links": [],
   "panels": [
     {
@@ -62,7 +62,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.4.1",
+      "pluginVersion": "7.4.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -176,7 +176,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.4.1",
+      "pluginVersion": "7.4.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -294,7 +294,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.4.1",
+      "pluginVersion": "7.4.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -336,7 +336,7 @@
           "label": null,
           "logBase": 1,
           "max": null,
-          "min": "0",
+          "min": null,
           "show": true
         },
         {
@@ -395,7 +395,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.4.1",
+      "pluginVersion": "7.4.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -411,14 +411,14 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "mph_hashrate{instance=\"$instance\", coin=\"$coin\"}",
+          "expr": "mph_raw_personal_hashrate{instance=\"$instance\", coin=\"$coin\"}",
           "interval": "",
           "legendFormat": "{{coin}} current",
           "queryType": "randomWalk",
           "refId": "A"
         },
         {
-          "expr": "avg_over_time(mph_hashrate[8h])",
+          "expr": "avg_over_time(mph_raw_personal_hashrate{instance=\"$instance\", coin=\"$coin\"}[8h])",
           "hide": false,
           "interval": "",
           "legendFormat": "{{coin}} 8hr avg ",
@@ -446,7 +446,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:80",
-          "format": "short",
+          "format": "KHs",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -509,7 +509,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "7.4.1",
+      "pluginVersion": "7.4.2",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -560,7 +560,7 @@
       "yaxes": [
         {
           "$$hashKey": "object:80",
-          "format": "short",
+          "format": "KHs",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -569,7 +569,7 @@
         },
         {
           "$$hashKey": "object:81",
-          "format": "short",
+          "format": "KHs",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -664,5 +664,5 @@
   "timezone": "",
   "title": "MPH",
   "uid": "wSAgXIYMz",
-  "version": 6
+  "version": 9
 }
