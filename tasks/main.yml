@@ -13,6 +13,7 @@
     - grafana_datasources
     - grafana_notifications
     - grafana_dashboards
+    - configure
 
 - include: preflight.yml
   tags:
@@ -21,24 +22,25 @@
     - grafana_datasources
     - grafana_notifications
     - grafana_dashboards
+    - configure
 
 - include: install.yml
   become: true
-  tags:
-    - grafana_install
+  tags: ["install"]
   when:
     - not grafana_skip_install
-    - "'skip_install' not in ansible_run_tags"
 
 - include: configure.yml
   become: true
   tags:
     - grafana_configure
+    - configure
 
 - include: plugins.yml
   when: grafana_plugins != []
   tags:
     - grafana_configure
+    - configure
 
 - name: Restart grafana before configuring datasources and dashboards
   meta: flush_handlers
@@ -49,6 +51,7 @@
     - grafana_notifications
     - grafana_dashboards
     - grafana_run
+    - configure
 
 - name: Wait for grafana to start (http/s)
   wait_for:
@@ -62,6 +65,7 @@
     - grafana_notifications
     - grafana_dashboards
     - grafana_run
+    - configure
 
 - name: Wait for grafana to start (socket)
   wait_for:
@@ -74,12 +78,14 @@
     - grafana_notifications
     - grafana_dashboards
     - grafana_run
+    - configure
 
 - include: api_keys.yml
   when: grafana_api_keys | length > 0
   tags:
     - grafana_configure
     - grafana_run
+    - configure
 
 - include: datasources.yml
   when: grafana_datasources != []
@@ -87,6 +93,7 @@
     - grafana_configure
     - grafana_datasources
     - grafana_run
+    - configure
 
 - include: notifications.yml
   when: grafana_alert_notifications | length > 0
@@ -94,6 +101,7 @@
     - grafana_configure
     - grafana_notifications
     - grafana_run
+    - configure
 
 - name: "Check if there are any dashboards in local {{ grafana_dashboards_dir }}"
   become: false
@@ -103,6 +111,7 @@
     - grafana_configure
     - grafana_dashboards
     - grafana_run
+    - configure
 
 - include: dashboards.yml
   when: grafana_dashboards | length > 0 or found_dashboards | length > 0
@@ -110,3 +119,4 @@
     - grafana_configure
     - grafana_dashboards
     - grafana_run
+    - configure
