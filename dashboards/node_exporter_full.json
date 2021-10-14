@@ -657,7 +657,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "node_memory_MemTotal_bytes{instance=\"DreSRV\", job=\"node\"}",
+      "tableColumn": "node_memory_MemTotal_bytes{instance=\"dresrv\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_memory_MemTotal_bytes{instance=\"$instance\",job=~\"$job\"}",
@@ -746,7 +746,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "node_memory_SwapTotal_bytes{instance=\"DreSRV\", job=\"node\"}",
+      "tableColumn": "node_memory_SwapTotal_bytes{instance=\"dresrv\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_memory_SwapTotal_bytes{instance=\"$instance\",job=~\"$job\"}",
@@ -835,7 +835,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "node_load1{instance=\"DreSRV\", job=\"node\"}",
+      "tableColumn": "node_load1{instance=\"dresrv\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_load1{instance=\"$instance\",job=~\"$job\"}",
@@ -925,7 +925,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "node_filesystem_size_bytes{device=\"/dev/mapper/luks-a65741ed-55ad-459c-b47a-03712af971e8\", fstype=\"btrfs\", instance=\"DreSRV\", job=\"node\", mountpoint=\"/\"}",
+      "tableColumn": "node_filesystem_size_bytes{device=\"/dev/mapper/luks-a65741ed-55ad-459c-b47a-03712af971e8\", fstype=\"btrfs\", instance=\"dresrv\", job=\"node\", mountpoint=\"/\"}",
       "targets": [
         {
           "expr": "node_filesystem_size_bytes{instance=\"$instance\",job=~\"$job\",mountpoint=\"/\",fstype!=\"rootfs\"}",
@@ -1016,7 +1016,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "{instance=\"DreSRV\", job=\"node\"}",
+      "tableColumn": "{instance=\"dresrv\", job=\"node\"}",
       "targets": [
         {
           "expr": "node_time_seconds{instance=\"$instance\",job=~\"$job\"} - node_boot_time_seconds{instance=\"$instance\",job=~\"$job\"}",
@@ -12328,8 +12328,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "DreSRV",
-          "value": "DreSRV"
+          "text": "dresrv",
+          "value": "dresrv"
         },
         "datasource": "Prometheus",
         "definition": "label_values(node_uname_info, instance)",

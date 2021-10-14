@@ -335,25 +335,25 @@
       "pluginVersion": "8.0.3",
       "targets": [
         {
-          "expr": "aquaero_temp{job=\"$job\", instance=\"DreSRV\", id=\"sensor4\"}",
+          "expr": "aquaero_temp{job=\"$job\", instance=\"dresrv\", id=\"sensor4\"}",
           "interval": "",
           "legendFormat": "Ambient",
           "refId": "D"
         },
         {
-          "expr": "aquaero_temp{job=\"$job\", instance=\"DreSRV\", id=\"sensor1\"}",
+          "expr": "aquaero_temp{job=\"$job\", instance=\"dresrv\", id=\"sensor1\"}",
           "interval": "",
           "legendFormat": "Intake",
           "refId": "A"
         },
         {
-          "expr": "aquaero_temp{job=\"$job\", instance=\"DreSRV\", id=\"sensor2\"}",
+          "expr": "aquaero_temp{job=\"$job\", instance=\"dresrv\", id=\"sensor2\"}",
           "interval": "",
           "legendFormat": "PSU",
           "refId": "B"
         },
         {
-          "expr": "aquaero_temp{job=\"$job\", instance=\"DreSRV\", id=\"sensor3\"}",
+          "expr": "aquaero_temp{job=\"$job\", instance=\"dresrv\", id=\"sensor3\"}",
           "interval": "",
           "legendFormat": "VRM",
           "refId": "C"

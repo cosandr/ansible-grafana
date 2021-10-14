@@ -188,7 +188,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "{instance=\"DreSRV\", job=\"postgres\"}",
+      "tableColumn": "{instance=\"dresrv\", job=\"postgres\"}",
       "targets": [
         {
           "expr": "process_start_time_seconds{instance=\"$instance\", job=\"$job\"} * 1000",
@@ -540,7 +540,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "pg_settings_max_connections{instance=\"DreSRV\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
+      "tableColumn": "pg_settings_max_connections{instance=\"dresrv\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
       "targets": [
         {
           "expr": "pg_settings_max_connections{instance=\"$instance\", job=\"$job\"}",
@@ -940,7 +940,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "pg_settings_shared_buffers_bytes{instance=\"DreSRV\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
+      "tableColumn": "pg_settings_shared_buffers_bytes{instance=\"dresrv\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
       "targets": [
         {
           "expr": "pg_settings_shared_buffers_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -1026,7 +1026,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "pg_settings_effective_cache_size_bytes{instance=\"DreSRV\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
+      "tableColumn": "pg_settings_effective_cache_size_bytes{instance=\"dresrv\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
       "targets": [
         {
           "expr": "pg_settings_effective_cache_size_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -1112,7 +1112,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "pg_settings_maintenance_work_mem_bytes{instance=\"DreSRV\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
+      "tableColumn": "pg_settings_maintenance_work_mem_bytes{instance=\"dresrv\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
       "targets": [
         {
           "expr": "pg_settings_maintenance_work_mem_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -1198,7 +1198,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "pg_settings_work_mem_bytes{instance=\"DreSRV\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
+      "tableColumn": "pg_settings_work_mem_bytes{instance=\"dresrv\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
       "targets": [
         {
           "expr": "pg_settings_work_mem_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -1286,7 +1286,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "pg_settings_max_wal_size_bytes{instance=\"DreSRV\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
+      "tableColumn": "pg_settings_max_wal_size_bytes{instance=\"dresrv\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
       "targets": [
         {
           "expr": "pg_settings_max_wal_size_bytes{instance=\"$instance\", job=\"$job\"}",
@@ -1372,7 +1372,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "pg_settings_random_page_cost{instance=\"DreSRV\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
+      "tableColumn": "pg_settings_random_page_cost{instance=\"dresrv\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
       "targets": [
         {
           "expr": "pg_settings_random_page_cost{instance=\"$instance\", job=\"$job\"}",
@@ -1458,7 +1458,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "pg_settings_seq_page_cost{instance=\"DreSRV\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
+      "tableColumn": "pg_settings_seq_page_cost{instance=\"dresrv\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
       "targets": [
         {
           "expr": "pg_settings_seq_page_cost{instance=\"$instance\", job=\"$job\"}",
@@ -1544,7 +1544,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "pg_settings_max_worker_processes{instance=\"DreSRV\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
+      "tableColumn": "pg_settings_max_worker_processes{instance=\"dresrv\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
       "targets": [
         {
           "expr": "pg_settings_max_worker_processes{instance=\"$instance\", job=\"$job\"}",
@@ -1630,7 +1630,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "pg_settings_max_parallel_workers{instance=\"DreSRV\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
+      "tableColumn": "pg_settings_max_parallel_workers{instance=\"dresrv\", job=\"postgres\", server=\"/var/run/postgresql/:5432\"}",
       "targets": [
         {
           "expr": "pg_settings_max_parallel_workers{instance=\"$instance\", job=\"$job\"}",
@@ -3206,8 +3206,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "DreSRV",
-          "value": "DreSRV"
+          "text": "dresrv",
+          "value": "dresrv"
         },
         "datasource": "Prometheus",
         "definition": "label_values(postgres_exporter_build_info{job=\"$job\"}, instance)",

@@ -181,7 +181,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "machine_cpu_cores{instance=\"DreSRV\", job=\"cadvisor\"}",
+      "tableColumn": "machine_cpu_cores{instance=\"dresrv\", job=\"cadvisor\"}",
       "targets": [
         {
           "expr": "machine_cpu_cores{instance=\"$instance\", job=\"$cjob\"}",
@@ -1508,8 +1508,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "DreSRV",
-          "value": "DreSRV"
+          "text": "dresrv",
+          "value": "dresrv"
         },
         "datasource": "Prometheus",
         "definition": "label_values(node_uname_info, instance)",

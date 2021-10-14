@@ -80,7 +80,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "{instance=\"DreSRV\", job=\"prometheus\"}",
+      "tableColumn": "{instance=\"dresrv\", job=\"prometheus\"}",
       "targets": [
         {
           "expr": "(time() - process_start_time_seconds{instance=\"$instance\",job=\"prometheus\"})",
@@ -268,7 +268,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "prometheus_tsdb_head_chunks{instance=\"DreSRV\", job=\"prometheus\"}",
+      "tableColumn": "prometheus_tsdb_head_chunks{instance=\"dresrv\", job=\"prometheus\"}",
       "targets": [
         {
           "expr": "prometheus_tsdb_head_chunks{instance=\"$instance\"}",
@@ -360,7 +360,7 @@
         "lineColor": "rgb(31, 120, 193)",
         "show": false
       },
-      "tableColumn": "prometheus_tsdb_head_series{instance=\"DreSRV\", job=\"prometheus\"}",
+      "tableColumn": "prometheus_tsdb_head_series{instance=\"dresrv\", job=\"prometheus\"}",
       "targets": [
         {
           "expr": "prometheus_tsdb_head_series{instance=\"$instance\"}",
@@ -3688,8 +3688,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "DreSRV",
-          "value": "DreSRV"
+          "text": "dresrv",
+          "value": "dresrv"
         },
         "datasource": "Prometheus",
         "definition": "",

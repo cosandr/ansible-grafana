@@ -593,8 +593,8 @@
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "DreSRV",
-          "value": "DreSRV"
+          "text": "dresrv",
+          "value": "dresrv"
         },
         "datasource": "Prometheus",
         "definition": "label_values(mph_up, instance)",
