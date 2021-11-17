@@ -8,23 +8,27 @@
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
         "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
         "type": "dashboard"
       }
     ]
   },
   "editable": true,
+  "fiscalYearStartMonth": 0,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1624562243971,
+  "iteration": 1637145921653,
   "links": [],
+  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
       "datasource": null,
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -88,17 +92,17 @@
               }
             ]
           },
-          "unit": "RPM"
+          "unit": "celsius"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 12,
-        "w": 24,
+        "h": 14,
+        "w": 12,
         "x": 0,
         "y": 1
       },
-      "id": 2,
+      "id": 3,
       "options": {
         "legend": {
           "calcs": [
@@ -108,7 +112,7 @@
             "min"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "bottom"
         },
         "tooltip": {
           "mode": "multi"
@@ -117,21 +121,27 @@
       "pluginVersion": "8.0.3",
       "targets": [
         {
-          "expr": "aquaero_rpm{job=\"$job\", instance=\"desktop\", id=\"fan1\"}",
+          "expr": "aquaero_temp{job=\"$job\", instance=\"desktop\", id=\"sensor2\"}",
           "interval": "",
-          "legendFormat": "Pump",
+          "legendFormat": "Ambient",
           "refId": "B"
         },
         {
-          "expr": "aquaero_rpm{job=\"$job\", instance=\"desktop\", id=\"fan2\"}",
+          "expr": "aquaero_temp{job=\"$job\", instance=\"desktop\", id=\"sensor1\"}",
           "interval": "",
-          "legendFormat": "Fans",
+          "legendFormat": "Water",
+          "refId": "A"
+        },
+        {
+          "expr": "abs(aquaero_temp{job=\"$job\", instance=\"desktop\", id=\"sensor1\"} - ignoring (id) aquaero_temp{job=\"$job\", instance=\"desktop\", id=\"sensor2\"})",
+          "interval": "",
+          "legendFormat": "Delta",
           "refId": "C"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Fans",
+      "title": "Temperatures",
       "type": "timeseries"
     },
     {
@@ -185,17 +195,17 @@
               }
             ]
           },
-          "unit": "celsius"
+          "unit": "RPM"
         },
         "overrides": []
       },
       "gridPos": {
-        "h": 12,
-        "w": 24,
-        "x": 0,
-        "y": 13
+        "h": 14,
+        "w": 12,
+        "x": 12,
+        "y": 1
       },
-      "id": 3,
+      "id": 2,
       "options": {
         "legend": {
           "calcs": [
@@ -205,7 +215,7 @@
             "min"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "bottom"
         },
         "tooltip": {
           "mode": "multi"
@@ -214,45 +224,35 @@
       "pluginVersion": "8.0.3",
       "targets": [
         {
-          "expr": "aquaero_temp{job=\"$job\", instance=\"desktop\", id=\"sensor2\"}",
+          "expr": "aquaero_rpm{job=\"$job\", instance=\"desktop\", id=\"fan1\"}",
           "interval": "",
-          "legendFormat": "Ambient",
+          "legendFormat": "Pump",
           "refId": "B"
         },
         {
-          "expr": "aquaero_temp{job=\"$job\", instance=\"desktop\", id=\"sensor1\"}",
+          "expr": "aquaero_rpm{job=\"$job\", instance=\"desktop\", id=\"fan2\"}",
           "interval": "",
-          "legendFormat": "Water",
-          "refId": "A"
-        },
-        {
-          "expr": "abs(aquaero_temp{job=\"$job\", instance=\"desktop\", id=\"sensor1\"} - ignoring (id) aquaero_temp{job=\"$job\", instance=\"desktop\", id=\"sensor2\"})",
-          "interval": "",
-          "legendFormat": "Delta",
+          "legendFormat": "Fans",
           "refId": "C"
         }
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Temperatures",
+      "title": "Fans",
       "type": "timeseries"
     },
     {
       "collapsed": false,
       "datasource": null,
-      "fieldConfig": {
-        "defaults": {},
-        "overrides": []
-      },
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 25
+        "y": 15
       },
       "id": 11,
       "panels": [],
-      "title": "DreSRV",
+      "title": "SLB",
       "type": "row"
     },
     {
@@ -311,12 +311,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 12,
-        "w": 24,
+        "h": 14,
+        "w": 12,
         "x": 0,
-        "y": 26
+        "y": 16
       },
-      "id": 12,
+      "id": 13,
       "options": {
         "legend": {
           "calcs": [
@@ -326,7 +326,7 @@
             "min"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "bottom"
         },
         "tooltip": {
           "mode": "multi"
@@ -335,27 +335,25 @@
       "pluginVersion": "8.0.3",
       "targets": [
         {
-          "expr": "aquaero_temp{job=\"$job\", instance=\"dresrv\", id=\"sensor4\"}",
+          "exemplar": true,
+          "expr": "aquaero_temp{job=\"$job\", instance=\"SLB\", id=\"sensor1\"}",
           "interval": "",
-          "legendFormat": "Ambient",
-          "refId": "D"
-        },
-        {
-          "expr": "aquaero_temp{job=\"$job\", instance=\"dresrv\", id=\"sensor1\"}",
-          "interval": "",
-          "legendFormat": "Intake",
+          "legendFormat": "CPU",
           "refId": "A"
         },
         {
-          "expr": "aquaero_temp{job=\"$job\", instance=\"dresrv\", id=\"sensor2\"}",
+          "exemplar": true,
+          "expr": "aquaero_temp{job=\"$job\", instance=\"SLB\", id=\"sensor2\"}",
           "interval": "",
-          "legendFormat": "PSU",
+          "legendFormat": "HDD 1",
           "refId": "B"
         },
         {
-          "expr": "aquaero_temp{job=\"$job\", instance=\"dresrv\", id=\"sensor3\"}",
+          "exemplar": true,
+          "expr": "aquaero_temp{job=\"$job\", instance=\"SLB\", id=\"sensor3\"}",
+          "hide": false,
           "interval": "",
-          "legendFormat": "VRM",
+          "legendFormat": "HDD 2",
           "refId": "C"
         }
       ],
@@ -365,17 +363,128 @@
       "type": "timeseries"
     },
     {
-      "collapsed": true,
-      "datasource": null,
+      "datasource": "Prometheus",
       "fieldConfig": {
-        "defaults": {},
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "RPM"
+        },
         "overrides": []
       },
+      "gridPos": {
+        "h": 14,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max",
+            "min"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "multi"
+        }
+      },
+      "pluginVersion": "8.0.3",
+      "targets": [
+        {
+          "exemplar": true,
+          "expr": "aquaero_rpm{job=\"$job\", instance=\"SLB\", id=\"fan1\"}",
+          "interval": "",
+          "legendFormat": "CPU",
+          "refId": "B"
+        },
+        {
+          "exemplar": true,
+          "expr": "aquaero_rpm{job=\"$job\", instance=\"SLB\", id=\"fan2\"}",
+          "interval": "",
+          "legendFormat": "Case 1",
+          "refId": "C"
+        },
+        {
+          "exemplar": true,
+          "expr": "aquaero_rpm{job=\"$job\", instance=\"SLB\", id=\"fan3\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Case 2",
+          "refId": "A"
+        },
+        {
+          "exemplar": true,
+          "expr": "aquaero_rpm{job=\"$job\", instance=\"SLB\", id=\"fan4\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Case 3",
+          "refId": "D"
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Fans",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": true,
+      "datasource": null,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 38
+        "y": 30
       },
       "id": 9,
       "panels": [
@@ -585,7 +694,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 30,
+  "schemaVersion": 32,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -642,5 +751,5 @@
   "timezone": "",
   "title": "Aquaero",
   "uid": "VOcd_lkGz",
-  "version": 41
+  "version": 44
 }
