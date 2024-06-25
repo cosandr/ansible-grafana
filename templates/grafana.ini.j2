@@ -138,6 +138,16 @@ enabled = True
 [log]
 mode = {{ grafana_log.mode | default('console, file') }}
 level = {{ grafana_log.level | default('info') }}
+{% for k, v in (grafana_log.config | default({})).items() %}
+{{ k }} = {{ v }}
+{% endfor%}
+
+{% for conf in grafana_log.mode_config | default([]) %}
+[log.{{ conf.name }}]
+{% for k, v in conf.options.items() %}
+{{ k }} = {{ v }}
+{% endfor %}
+{% endfor%}
 
 # Metrics
 [metrics]

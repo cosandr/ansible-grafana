@@ -162,9 +162,18 @@ grafana_alerting:
 #  concurrent_render_limit: 5
 
 # Grafana logging configuration
-grafana_log:
-# mode: 'console file'
-# level: info
+grafana_log: {}
+  # mode: 'console file'
+  # level: info
+  # config:
+  #   filters: "sqlstore:debug"
+  # mode_config:
+  #   - name: console
+  #     options:
+  #       format: text
+  #   - name: file
+  #     options:
+  #       format: json
 
 # Internal grafana metrics system
 grafana_metrics: {}
