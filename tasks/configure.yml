@@ -20,7 +20,7 @@
     dest: /etc/grafana/grafana.ini
     owner: root
     group: grafana
-    mode: 0640
+    mode: "0640"
   notify: restart grafana
 
 - name: Create grafana LDAP configuration file
@@ -29,7 +29,7 @@
     dest: "{{ grafana_auth.ldap.config_file | default('/etc/grafana/ldap.toml') }}"
     owner: root
     group: grafana
-    mode: 0640
+    mode: "0640"
   when:
     - "'ldap' in grafana_auth"
     - "'enabled' not in grafana_auth.ldap or grafana_auth.ldap.enabled"
@@ -40,7 +40,7 @@
   file:
     path: "{{ item }}"
     state: directory
-    mode: 0755
+    mode: "0755"
     owner: "grafana"
     group: "grafana"
   with_items:
@@ -54,7 +54,7 @@
       file:
         path: "{{ grafana_server.socket | dirname }}"
         state: directory
-        mode: 0775
+        mode: "0775"
         owner: "grafana"
         group: "grafana"
 
@@ -64,7 +64,7 @@
         dest: /etc/tmpfiles.d/grafana.conf
         owner: root
         group: root
-        mode: 0644
+        mode: "0644"
   when:
     - grafana_server.protocol is defined and grafana_server.protocol == 'socket'
     - grafana_server.socket | dirname != '/var/run'

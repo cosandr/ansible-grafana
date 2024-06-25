@@ -1,0 +1,10 @@
+---
+
+apiVersion: 1
+providers:
+  - name: 'default'
+{% if grafana_dashboard_provisioning_config %}
+    {{ grafana_dashboard_provisioning_config | to_nice_yaml(indent=2) | indent(4) }}
+{% endif %}
+    options:
+      path: "{{ grafana_data_dir }}/dashboards"
