@@ -42,18 +42,16 @@
 
 - block:
     - name: Import Grafana GPG signing key [Debian/Ubuntu]
-      apt_key:
-        url: "https://apt.grafana.com/gpg.key"
-        state: present
-        dest: /etc/apt/keyrings/grafana.gpg
-      register: _add_apt_key
-      until: _add_apt_key is succeeded
-      retries: 5
-      delay: 2
+      ansible.builtin.get_url:
+        url: "https://apt.grafana.com/gpg-full.key"
+        dest: "/etc/apt/keyrings/grafana.asc"
+        owner: root
+        group: root
+        mode: "0644"
 
     - name: Add Grafana repository [Debian/Ubuntu]
-      apt_repository:
-        repo: "deb [signed-by=/etc/apt/keyrings/grafana.gpg] https://apt.grafana.com stable main"
+      ansible.builtin.apt_repository:
+        repo: "deb [signed-by=/etc/apt/keyrings/grafana.asc] https://apt.grafana.com stable main"
         state: present
         update_cache: true
       register: _update_apt_cache
